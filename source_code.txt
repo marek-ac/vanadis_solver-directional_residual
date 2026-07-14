@@ -1,0 +1,33 @@
+Vanadis Solver — Key Source Files
+---------------------------------
+
+This file lists the most important source files in the Vanadis / DR solver.
+It is intended to help users and developers quickly locate the core components
+of the numerical engine, CUDA kernels, and build scripts.
+
+Linux / CUDA version
+------------------------------
+Directional_Residual_stabilzation_Vanadis\DR_full_LINUX_CUDA\VANADIS.FOR
+Directional_Residual_stabilzation_Vanadis\DR_full_LINUX_CUDA\cudatest.cu
+Directional_Residual_stabilzation_Vanadis\DR_full_LINUX_CUDA\makefile
+
+Windows version
+-------------------------
+Directional_Residual_stabilzation_Vanadis\DR_full_WINDOWS\vanadis_full_DR.for
+
+
+Bitmap creation (frames for animation)
+-------------------------------------------
+Directional_Residual_stabilzation_Vanadis\bitmap\bitmap_mem_sample.c
+
+
+Notes
+-----
+• VANADIS.FOR — main solver core (FEM, DR stabilization, time integration)
+• cudatest.cu — CUDA kernels (MATVEC, MTTVEC, GPU backend)
+• makefile — build configuration for Linux/CUDA
+• vanadis_full_DR.for — Windows version of the solver. Catalog change "output\" --> "output/" ( Windows / Linux )
+
+
+
+This file is informational only and does not affect licensing.

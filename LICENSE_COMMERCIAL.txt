@@ -1,0 +1,21 @@
+Vanadis Solver / DR Stabilization
+Commercial License Terms
+
+Copyright (c) 1995–2026 Marek Chodorski
+
+Vanadis and DR are available under a commercial license for organizations
+that wish to use the software in proprietary or closed-source products, or in
+any commercial context where GPL-3.0 obligations are not acceptable.
+
+The commercial license grants:
+• the right to use Vanadis or DR in closed-source software,
+• the right to integrate Vanadis or DR into commercial products,
+• the right to keep derivative works proprietary,
+• exemption from GPL-3.0 copyleft requirements,
+• optional technical support and consulting.
+
+The commercial license does NOT grant redistribution rights for the GPL version.
+
+To obtain a commercial license, please contact:
+Marek Chodorski
+Email: marek_ac@wp.pl

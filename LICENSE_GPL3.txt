@@ -1,0 +1,14 @@
+Vanadis Solver / DR Stabilization
+Copyright (c) 1995–2026 Marek Chodorski
+This project is licensed under the GNU General Public License Version 3 (GPL-3.0).
+
+You may use, modify, and redistribute this software under the terms of GPL-3.0.
+Any derivative work or software that links to Vanadis or DR Stabilization must also be released
+under GPL-3.0 and must provide full corresponding source code.
+
+This license prohibits the inclusion of Vanadis or DR in closed source
+or proprietary software unless the entire combined work is distributed under
+GPL-3.0.
+
+For the full text of the GPL-3.0 license, please refer to:
+https://www.gnu.org/licenses/gpl-3.0.txt

@@ -29,5 +29,9 @@ Notes
 • vanadis_full_DR.for — Windows version of the solver. Catalog change "output\" --> "output/" ( Windows / Linux )
 
 
+updates to zip archive
+----------------------
+src_updates\gauss_point_hex8DR.for — updated DR stabilization routine (Jacobian-based stream length)
+
 
 This file is informational only and does not affect licensing.

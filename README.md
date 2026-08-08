@@ -56,3 +56,21 @@ Vanadis and Directional-Residual Stabilization is free for academic and open-sou
 Commercial users must obtain a proprietary license.
 
 This dual-licensing model protects the intellectual property of Vanadis and DR while enabling both open scientific collaboration and commercial deployment.
+
+5. Download / Installation
+
+To run the Vanadis solver, cloning the repository is not sufficient.
+
+The fully packaged, ready to run version must be downloaded from the Releases section:
+Directional_Residual_stabilization_Vanadis.zip  
+https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.1.1
+
+The ZIP archive includes:
+    compiled CPU/GPU binaries,
+    complete directory structure,
+    example configuration files,
+    input datasets,
+    sample results,
+    a ready to run solver build.
+
+If you only want to run Vanadis, download the ZIP from Releases.

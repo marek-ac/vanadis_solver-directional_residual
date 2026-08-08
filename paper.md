@@ -35,7 +35,7 @@ Vanadis contributes to this landscape by:
 
     providing a fully element-wise CUDA solver,
 
-    focusing specifically on scalar transport rather than full Navier–Stokes systems,
+    focusing specifically on scalar transport rather than full Navier–Stokes systems (The Directional Residual concept can be naturally extended to vector systems such as the Navier-Stokes equations),
 
     offering a compact, transparent codebase suitable for experimentation with stabilization and time-integration schemes.
 

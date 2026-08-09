@@ -4,7 +4,7 @@ Vanadis is an open-source finite element solver designed for large-scale 3D tran
 
 Boundary conditions at the ground surface include either a Dirichlet constraint or a flux-type deposition condition, with the latter controlled by the parameter α, which governs pollutant penetration into the surface.
 
-Time integration is performed using a custom stabilized implicit second-order multistep scheme inspired by BDF-type methods. This approach provides strong numerical stability and accurate transient behavior for stiff advection–diffusion systems.
+Time integration is performed using an implicit time-discrete formulation, in which the system matrix and right-hand-side vector are assembled element-wise and the resulting global system is solved iteratively at each time step. This approach provides strong numerical stability and robust transient behavior for stiff advection–diffusion systems. The combination of DR spatial discretization, GPU-accelerated element-wise computations, and the implicit time-integration scheme results in a robust and efficient framework for large-scale atmospheric dispersion simulations.
 
 The combination of DR spatial discretization, GPU-accelerated element-wise solving, and the stabilized multistep time scheme results in a robust and efficient tool for large-scale atmospheric dispersion simulations.
 

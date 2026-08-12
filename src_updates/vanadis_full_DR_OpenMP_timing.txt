@@ -1,0 +1,25 @@
+cpmpilation and run instruction:
+
+-------------------------------------------------------------------------------------------
+gfortran -O3 -fopenmp -ffixed-line-length-none vanadis_full_DR_OpenMP_timing.for -o vanadis
+set OMP_NUM_THREADS=2
+vanadis
+------------------------------------------------------------------------------------------
+
+description:
+Windows/OpenMP version (CPU-only)
+
+This version of the solver is built on the latest implementation of the Vanadis DR model and provides a CPU‑optimized execution path for machines without GPU support.
+
+OpenMP parallelization is applied exclusively to the matrix assembly phase, which significantly accelerates computations on multi‑core processors.
+
+The linear system solver is not GPU‑based in this variant — this is a pure CPU version intended for environments where CUDA is not available.
+
+The OpenMP assembly module can be easily merged with the Linux/CUDA version of the solver.
+This allows creating a hybrid configuration:
+
+    CPU multithreaded matrix assembly (OpenMP)
+
+    GPU‑accelerated linear system solving (CUDA)
+
+Such a combined setup provides an efficient workflow for large 3D transport simulations, leveraging both multi‑core CPUs and modern GPUs.

@@ -32,6 +32,7 @@ Notes
 updates to zip archive
 ----------------------
 src_updates\gauss_point_hex8DR.for — updated DR stabilization routine (Jacobian-based stream length)
+src_updates\vanadis_merge_all.for - Improve DR stabilization, boundary conditions, OpenMP and output I/O - win10 version
 
 
 This file is informational only and does not affect licensing.

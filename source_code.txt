@@ -33,6 +33,7 @@ updates to zip archive
 ----------------------
 src_updates\gauss_point_hex8DR.for — updated DR stabilization routine (Jacobian-based stream length)
 src_updates\vanadis_merge_all.for - Improve DR stabilization, boundary conditions, OpenMP and output I/O - win10 version
+src_updates\cudatest_gtx1060_launch_optimized.cu - Tune CUDA kernel launch parameters for Pascal GPUs
 
 
 This file is informational only and does not affect licensing.

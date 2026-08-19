@@ -1,3 +1,7 @@
+Release v2026.2.1 targets Linux only
+
+
+Release v2026.1.1
 Vanadis Solver — Key Source Files
 ---------------------------------
 

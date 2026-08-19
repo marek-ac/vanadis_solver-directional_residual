@@ -63,7 +63,7 @@ To run the Vanadis solver, cloning the repository is not sufficient.
 
 The fully packaged, ready to run version must be downloaded from the Releases section:
 Directional_Residual_stabilization_Vanadis.zip  
-https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.1.1
+https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.2.1
 
 The ZIP archive includes:
     compiled CPU/GPU binaries,

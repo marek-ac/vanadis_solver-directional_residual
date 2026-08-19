@@ -1,0 +1,279 @@
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$ make clean
+rm -f cudatest.o VANADIS.o vanadis
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$ make
+/usr/local/cuda/bin/nvcc -ccbin g++ -I../../common/inc -m64 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_61,code=sm_61 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_75,code=compute_75 -O3 -arch sm_60 -o cudatest.o -c cudatest.cu
+gfortran -c -O3 -fopenmp VANADIS.FOR
+/usr/local/cuda/bin/nvcc -ccbin g++ -m64 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_61,code=sm_61 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_75,code=compute_75 -O3 -o vanadis cudatest.o VANADIS.o  -lgfortran -Xcompiler -fopenmp
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$ export OMP_NUM_THREADS=4
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$ ./vanadis
+ ******************************************************
+
+  Vanadis 3D - A three-dimensional FEM model
+               for atmospheric pollutant transport
+
+  author:   Marek Chodorski
+  e-mail:   marek_ac@wp.pl
+
+ ******************************************************
+
+  Configuration parameters:
+
+ Q[kg/s]    =    0.10D+01
+ K[m^2/s]   =    0.40D+02
+ P[1/s]     =    0.70D-03
+ V1[m/s]    =    0.00D+00
+ V2[m/s]    =   -0.50D+01
+ V3[m/s]    =    0.00D+00
+ ALPHA[m/s] =    0.10D-01
+
+  Results in T_ttttt.TXT X[m],Y[m],Z[m],                               S(x,y,z)[mg/m^3]
+
+  Results are written to output directory
+
+  IS IT CORRECT?  [Y/N]
+Y
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ Czas montowania macierzy/wektora =    1.1369474999980866E-002  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =   0.40146686600002113       sekund
+ OK - number of iterations:    63 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8132E-08 ---
+ Czas zapisu na dysk =    2.9401667000001908E-002  sekund
+ czas=         100  masa=   96.403002800231789
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ Czas montowania macierzy/wektora =    6.9790499999839994E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    7.1037633000003098E-002  sekund
+ OK - number of iterations:    67 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7810E-08 ---
+ Czas zapisu na dysk =    3.1218416999990950E-002  sekund
+ czas=         200  masa=   193.95889959498922
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    300 sec
+ Czas montowania macierzy/wektora =    2.8281499999707194E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    4.6314017000042895E-002  sekund
+ OK - number of iterations:    70 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8737E-08 ---
+ Czas zapisu na dysk =    2.6843374999998559E-002  sekund
+ czas=         300  masa=   296.39361171343302
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    400 sec
+ Czas montowania macierzy/wektora =    5.6667000000061307E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    3.4565482999994401E-002  sekund
+ OK - number of iterations:    65 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4422E-08 ---
+ Czas zapisu na dysk =    4.5661090999999487E-002  sekund
+ czas=         400  masa=   384.35839602844641
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    500 sec
+ Czas montowania macierzy/wektora =    8.2003999999642474E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    4.8030341000014687E-002  sekund
+ OK - number of iterations:    63 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6888E-08 ---
+ Czas zapisu na dysk =    3.0874132999997528E-002  sekund
+ czas=         500  masa=   432.02181270899456
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    600 sec
+ Czas montowania macierzy/wektora =    2.8255500000113898E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    5.1946484000040982E-002  sekund
+ OK - number of iterations:    62 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6731E-08 ---
+ Czas zapisu na dysk =    2.6970341999970060E-002  sekund
+ czas=         600  masa=   444.59326870651341
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    700 sec
+ Czas montowania macierzy/wektora =    7.0527159999755895E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    3.2266649999996844E-002  sekund
+ OK - number of iterations:    58 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8025E-08 ---
+ Czas zapisu na dysk =    2.7324590999967313E-002  sekund
+ czas=         700  masa=   446.08265854067429
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    800 sec
+ Czas montowania macierzy/wektora =    3.2875919999924008E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    3.4445341999969514E-002  sekund
+ OK - number of iterations:    52 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3367E-08 ---
+ Czas zapisu na dysk =    2.6621833000035622E-002  sekund
+ czas=         800  masa=   447.05748698032039
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    900 sec
+ Czas montowania macierzy/wektora =    4.9366420000183098E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    3.5860174999982064E-002  sekund
+ OK - number of iterations:    52 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.1920E-08 ---
+ Czas zapisu na dysk =    2.9363208999996004E-002  sekund
+ czas=         900  masa=   447.41567634927105
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1000 sec
+ Czas montowania macierzy/wektora =    2.8101670000069134E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    2.7609399999960260E-002  sekund
+ OK - number of iterations:    52 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.1213E-08 ---
+ Czas zapisu na dysk =    2.6223383000001377E-002  sekund
+ czas=        1000  masa=   447.41888262380149
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1100 sec
+ Czas montowania macierzy/wektora =    8.3709169999792721E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    4.4061767000016516E-002  sekund
+ OK - number of iterations:    44 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5223E-08 ---
+ Czas zapisu na dysk =    2.7540175000012823E-002  sekund
+ czas=        1100  masa=   447.45536006906474
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1200 sec
+ Czas montowania macierzy/wektora =    4.9569000000246888E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    2.8808215999958975E-002  sekund
+ OK - number of iterations:    38 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4281E-08 ---
+ Czas zapisu na dysk =    2.7247457999976632E-002  sekund
+ czas=        1200  masa=   447.46098232494597
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1300 sec
+ Czas montowania macierzy/wektora =    4.8287409999829833E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    1.9148891999975604E-002  sekund
+ OK - number of iterations:    31 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8799E-08 ---
+ Czas zapisu na dysk =    3.0088175000003048E-002  sekund
+ czas=        1300  masa=   447.46041115133880
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1400 sec
+ Czas montowania macierzy/wektora =    2.8115750000097250E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    3.5169657999972515E-002  sekund
+ OK - number of iterations:    31 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3676E-08 ---
+ Czas zapisu na dysk =    2.8479640999989897E-002  sekund
+ czas=        1400  masa=   447.46220485464306
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1500 sec
+ Czas montowania macierzy/wektora =    2.8043170000273676E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    2.8775825000025179E-002  sekund
+ OK - number of iterations:    29 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7146E-08 ---
+ Czas zapisu na dysk =    2.8681683000002067E-002  sekund
+ czas=        1500  masa=   447.46182836729253
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1600 sec
+ Czas montowania macierzy/wektora =    6.2669750000168278E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    2.5132466999991721E-002  sekund
+ OK - number of iterations:    25 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6715E-08 ---
+ Czas zapisu na dysk =    2.9124549999949068E-002  sekund
+ czas=        1600  masa=   447.46200897659708
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1700 sec
+ Czas montowania macierzy/wektora =    8.4131670000147096E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    1.7115366999973958E-002  sekund
+ OK - number of iterations:    20 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9503E-08 ---
+ Czas zapisu na dysk =    2.4644857999987835E-002  sekund
+ czas=        1700  masa=   447.46199992044870
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1800 sec
+ Czas montowania macierzy/wektora =    8.1644329999903675E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    1.0357424999995146E-002  sekund
+ OK - number of iterations:    16 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8846E-08 ---
+ Czas zapisu na dysk =    3.2520691999991413E-002  sekund
+ czas=        1800  masa=   447.46199646496206
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1900 sec
+ Czas montowania macierzy/wektora =    8.5798910000107753E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    1.7251974999965114E-002  sekund
+ OK - number of iterations:    13 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7977E-08 ---
+ Czas zapisu na dysk =    2.5453999999967891E-002  sekund
+ czas=        1900  masa=   447.46200473654812
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   2000 sec
+ Czas montowania macierzy/wektora =    9.9990580000053342E-003  sekund
+ Diagonally dominant matrix [T/F]  F
+ wspolczynnik dominacji    3.4555096292862637
+ solving a system of equations...
+ Czas solvera =    7.0607330000029833E-003  sekund
+ OK - number of iterations:     9 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5648E-08 ---
+ Czas zapisu na dysk =    2.8156374999980471E-002  sekund
+ czas=        2000  masa=   447.46200134274335
+
+ Czas calkowity =    2.1249677590000147       sekund
+
+
+ creating 2D data files...
+ Czas podzialu plikow =    3.2759192780000035       sekund
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+
+
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$ ./bmp_xyz.exe output family
+Znaleziono 940 plikow X/Y/Z.
+Wyznaczanie maksimow stezenia...
+
+Maksimum global = 29.873
+Tryb skali: FAMILY = wspolna skala dla tej samej litery i indeksu plaszczyzny przez wszystkie czasy
+
+[1/940] X  t=100 s  plane=001  local_max=10.794  scale=10.794
+          prog 0.1% local_max = 0.010794
+  -> X_00100_001.bmp
+[2/940] X  t=100 s  plane=002  local_max=13.137  scale=13.137
+          prog 0.1% local_max = 0.013137
+  -> X_00100_002.bmp
+  
+.............................................................
+
+[939/940] Z  t=2000 s  plane=019  local_max=1.1477e-005  scale=1.7528e-005
+          prog 0.1% local_max = 1.1477e-008
+  -> Z_02000_019.bmp
+[940/940] Z  t=2000 s  plane=020  local_max=0  scale=1
+          prog 0.1% local_max = 0
+  -> Z_02000_020.bmp
+
+Gotowe: 940/940 plikow BMP.
+marek@DESKTOP-086RG7L:/mnt/d/Magazyn/docdr/plyta_ver_1_07_6_base_and_full/Artukuly_konferencje/CMAS/materialy_do_wysylki/GIT/VANADIS$
+
+
+
+
+

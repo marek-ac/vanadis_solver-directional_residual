@@ -1,7 +1,7 @@
 # Vanadis Solver
 
-![CMAS 2026 Oral](https://img.shields.io/badge/CMAS_2026-Oral_Presentation-blue)
-![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22016556-green)
+[![CMAS 2026](https://img.shields.io/badge/CMAS_2026-Oral_Presentation-blue)](https://www.cmascenter.org/conference/2026/agenda.cfm)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22016556.svg)](https://doi.org/10.5281/zenodo.22016556)
 
 ---
 

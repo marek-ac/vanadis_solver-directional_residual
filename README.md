@@ -7,23 +7,26 @@
 
 ## Licensing
 
-Vanadis and the Directional-Residual Stabilization are distributed under a dual-licensing model:
+Vanadis and the software implementation of Directional-Residual Stabilization are distributed under a dual-licensing model:
 
 ### 1. Open-source license: GPL-3.0
 
-The open-source edition of Vanadis and Directional-Residual Stabilization is released under the  
+The open-source edition of Vanadis and its implementation of Directional-Residual Stabilization is released under the  
 GNU General Public License, Version 3 (GPL-3.0).
 
 This license allows:
 
 - academic and research use  
 - educational use  
+- commercial use under GPL-3.0  
 - open-source development and contributions  
+- modification and redistribution subject to GPL-3.0 requirements  
 
-Any software that links to Vanadis or Directional-Residual Stabilization under GPL-3.0 must also be released under GPL-3.0 and must provide full corresponding source code.  
-This ensures that all derivative works remain open-source.
+If software incorporating or linking to Vanadis or its implementation of Directional-Residual Stabilization is distributed, the resulting combined or derivative work must comply with the applicable GPL-3.0 requirements, including provision of the corresponding source code where required.
 
-See: **[GPL-3.0 details](ca://s?q=Explain_GPL3_license)**
+The GPL-3.0 license therefore preserves copyleft obligations for distributed derivative and combined works.
+
+See: **[GNU GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html)**
 
 ---
 
@@ -31,22 +34,22 @@ See: **[GPL-3.0 details](ca://s?q=Explain_GPL3_license)**
 
 A commercial license is available for organizations that wish to:
 
-- use Vanadis or Directional-Residual Stabilization in closed-source or proprietary software  
-- integrate Vanadis or Directional-Residual Stabilization into commercial products  
-- avoid GPL-3.0 copyleft obligations  
+- use Vanadis or its implementation of Directional-Residual Stabilization in closed-source or proprietary software  
+- integrate Vanadis or its implementation of Directional-Residual Stabilization into commercial products without GPL-3.0 copyleft obligations  
+- distribute proprietary derivative or combined works  
 - obtain professional support or custom development  
 
-The commercial license grants:
+The commercial license grants, subject to the applicable commercial license agreement:
 
-- full rights to use Vanadis or Directional-Residual Stabilization in proprietary applications  
-- the ability to keep derivative works closed-source  
-- exemption from GPL-3.0 requirements  
+- rights to use Vanadis or its implementation of Directional-Residual Stabilization in proprietary applications  
+- the ability to keep derivative or combined works closed-source  
+- alternative licensing terms that do not impose GPL-3.0 copyleft requirements on the commercially licensed use  
 - optional support and consulting  
 
 Commercial licensing inquiries:  
 **Marek Chodorski — marek_ac@wp.pl**
 
-See: **[Commercial licensing info](ca://s?q=Explain_commercial_licensing)**
+See: `LICENSE_COMMERCIAL.txt`
 
 ---
 
@@ -59,10 +62,11 @@ See: **[Commercial licensing info](ca://s?q=Explain_commercial_licensing)**
 
 ### 4. Summary
 
-Vanadis and Directional-Residual Stabilization are free for academic and open-source use under GPL-3.0.  
-Commercial users must obtain a proprietary license.
+Vanadis and its implementation of Directional-Residual Stabilization may be used, modified, and distributed under GPL-3.0, including for commercial purposes, provided that the GPL-3.0 requirements are met.
 
-This dual-licensing model protects the intellectual property of Vanadis and DR while enabling both open scientific collaboration and commercial deployment.
+Users who wish to incorporate Vanadis or its implementation of Directional-Residual Stabilization into proprietary or closed-source software without complying with GPL-3.0 copyleft requirements must obtain a commercial license.
+
+This dual-licensing model protects the intellectual property embodied in Vanadis and its DR implementation while enabling both open scientific collaboration and commercial deployment.
 
 ---
 
@@ -74,6 +78,8 @@ The fully packaged, ready-to-run version must be downloaded from the Releases se
 
 **Directional_Residual_stabilization_Vanadis.zip**  
 https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.2.1
+
+This is the reference version used to obtain the numerical results reported in the CMAS 2026 extended abstract and presentation. Later Vanadis releases may contain additional model developments that were not part of the CMAS 2026 study.
 
 The ZIP archive includes:
 

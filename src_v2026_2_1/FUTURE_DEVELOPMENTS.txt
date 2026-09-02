@@ -1,0 +1,59 @@
+Vanadis - planned developments for a future release
+===================================================
+
+The source code in this directory represents the CMAS 2026-stage
+Vanadis solver. The following extensions are currently under
+development and are not part of this release.
+
+1. Time-dependent source term
+
+The current CMAS release uses a time-independent pollutant source.
+
+For the theta = 2/3 time-integration scheme, the general forcing
+contribution is
+
+    2 F^(n+1) + F^n
+
+after multiplication of the discrete equation by 3.
+
+For a time-independent source,
+
+    F^(n+1) = F^n = F,
+
+and therefore
+
+    2 F^(n+1) + F^n = 3 F.
+
+Thus, the current implementation using 3 F is fully consistent for
+the constant-source configuration used in this release.
+
+A future version will retain the source load vectors at both time
+levels, F^n and F^(n+1), allowing arbitrary time-dependent source
+functions Q(t), including discontinuous source activation and
+deactivation.
+
+For example:
+
+    source switched on:
+        F^n = 0,  F^(n+1) = F
+        forcing contribution = 2 F
+
+    source switched off:
+        F^n = F,  F^(n+1) = 0
+        forcing contribution = F
+
+
+2. Concentration-dependent pollutant removal
+
+Work is in progress on a nonlinear concentration-dependent pollutant
+removal formulation for Vanadis.
+
+The extension will allow the volumetric removal process to depend on
+the local pollutant concentration instead of using only a constant
+first-order removal coefficient.
+
+The nonlinear formulation and its iterative solution procedure are
+currently being tested and will be included in a future release.
+
+These developments do not modify the DR-stabilized FEM formulation
+used in the present CMAS 2026 release.

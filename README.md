@@ -79,7 +79,7 @@ The fully packaged, ready-to-run version must be downloaded from the Releases se
 **Directional_Residual_stabilization_Vanadis.zip**  
 https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.2.1
 
-This is the reference version used to obtain the numerical results reported in the CMAS 2026 extended abstract and presentation. Later Vanadis releases may contain additional model developments that were not part of the CMAS 2026 study.
+Vanadis v2026.2.1 is the final reference release for the CMAS 2026 study. Numerical results reported in the CMAS 2026 extended abstract and presentation were obtained using this and earlier compatible Vanadis releases. Later releases may contain additional model developments that were not part of the CMAS 2026 study.
 
 The ZIP archive includes:
 

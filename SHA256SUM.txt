@@ -7,3 +7,8 @@ SHA256: 221440cb02584e1cabb797d26c485b2a5d37420470f31f698fb19eca63446d3a
 Name: Directional_Residual_stabilzation_Vanadis.zip
 Size: 2188333 bytes (2137 KiB)
 SHA256: fee92d37e0eb30f0ee950b7f141cf978bd31f715571159a140bda031fd1b8145
+
+/releases/tag/v2026.1.1
+Name: Directional_Residual_stabilzation_Vanadis.zip
+Size: 4111775 bytes (4015 KiB)
+SHA256: d8de4eeb0ed29424f1bb96a577bbda7a435481131a56a76cdbc862af599edc19

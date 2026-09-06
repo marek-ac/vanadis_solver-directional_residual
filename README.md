@@ -81,13 +81,20 @@ https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v20
 
 Vanadis v2026.2.1 is the final reference release for the CMAS 2026 study. Numerical results reported in the CMAS 2026 extended abstract and presentation were obtained using this and earlier compatible Vanadis releases. Later releases may contain additional model developments that were not part of the CMAS 2026 study.
 
-The ZIP archive includes:
+### Current development release — v2026.3.0
 
-- compiled CPU/GPU binaries  
-- complete directory structure  
-- example configuration files  
+Vanadis **v2026.3.0** extends the model with a **nonlinear concentration-dependent reaction/decay coefficient P(S)** and generalized **time-dependent source handling Q(t)**. The nonlinear problem is solved using **Picard iteration** within each time step, while preserving the existing Directional Residual stabilization, Element-by-Element formulation, OpenMP CPU assembly, and CPU/CUDA iterative solution architecture.
+
+The source-term formulation supports constant, switched, pulsed, and otherwise time-varying emission profiles.
+
+**Release:**
+https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.3.0
+
+This development was introduced after the CMAS 2026 reference version and was **not part of the CMAS 2026 study**.
+
+The release ZIP archive includes:
+- complete directory structure with Vanadis source files  
+- example configuration files
+- documentation  
 - input datasets  
-- sample results  
-- a ready-to-run solver build  
-
-If you only want to run Vanadis, download the ZIP from Releases.
+- sample results

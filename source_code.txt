@@ -1,43 +1,108 @@
-Release v2026.2.1 targets Linux only
+# Vanadis Solver — Key Source Files
 
+Current development release: v2026.3.0
 
-Release v2026.1.1
-Vanadis Solver — Key Source Files
----------------------------------
+Reference release for the CMAS 2026 study: v2026.2.1
 
-This file lists the most important source files in the Vanadis / DR solver.
-It is intended to help users and developers quickly locate the core components
-of the numerical engine, CUDA kernels, and build scripts.
+## Purpose
 
-Linux / CUDA version
-------------------------------
-Directional_Residual_stabilzation_Vanadis\DR_full_LINUX_CUDA\VANADIS.FOR
-Directional_Residual_stabilzation_Vanadis\DR_full_LINUX_CUDA\cudatest.cu
-Directional_Residual_stabilzation_Vanadis\DR_full_LINUX_CUDA\makefile
+This file lists the most important source files provided directly in the
+Vanadis GitHub repository.
 
-Windows version
--------------------------
-Directional_Residual_stabilzation_Vanadis\DR_full_WINDOWS\vanadis_full_DR.for
+The selected source files are intended to help users and developers inspect
+the core numerical implementation of Vanadis, including the FEM solver,
+Directional Residual stabilization, nonlinear reaction handling, time-dependent
+source handling, OpenMP parallelization, and CUDA Element-by-Element solver.
 
+The files stored in the repository are not a complete copy of the release
+package. The complete Vanadis distribution is available in the corresponding
+ZIP archive in the GitHub Releases section.
 
-Bitmap creation (frames for animation)
--------------------------------------------
-Directional_Residual_stabilzation_Vanadis\bitmap\bitmap_mem_sample.c
+## Vanadis v2026.3.0
 
+Selected source files for the current development release are located in:
 
-Notes
------
-• VANADIS.FOR — main solver core (FEM, DR stabilization, time integration)
-• cudatest.cu — CUDA kernels (MATVEC, MTTVEC, GPU backend)
-• makefile — build configuration for Linux/CUDA
-• vanadis_full_DR.for — Windows version of the solver. Catalog change "output\" --> "output/" ( Windows / Linux )
+src_v2026_3_0\
 
+The v2026.3.0 source code includes the implementation of:
 
-updates to zip archive
-----------------------
-src_updates\gauss_point_hex8DR.for — updated DR stabilization routine (Jacobian-based stream length)
-src_updates\vanadis_merge_all.for - Improve DR stabilization, boundary conditions, OpenMP and output I/O - win10 version
-src_updates\cudatest_gtx1060_launch_optimized.cu - Tune CUDA kernel launch parameters for Pascal GPUs
+* three-dimensional HEX8 finite elements
+* Directional Residual (DR) stabilization
+* Element-by-Element matrix operations
+* OpenMP CPU assembly
+* CPU and CUDA DBCG iterative solution
+* diagonal preconditioning
+* CUDA Element-by-Element matrix-vector operations
+* CUDA graph-coloring and atomic execution variants
+* nonlinear concentration-dependent reaction/decay coefficient P(S)
+* Picard iteration for the nonlinear problem
+* generalized time-dependent source handling Q(t)
+* implicit transient time integration
+* Dirichlet and flux-type boundary conditions
+* buffered output and post-processing support
 
+## Main solver
+
+The main Vanadis source contains the FEM formulation, Directional Residual
+stabilization, transient solution procedure, boundary conditions, nonlinear
+P(S) treatment, Q(t) source handling, Picard iteration, OpenMP assembly, and
+interface to the iterative CPU/CUDA solver.
+
+## CUDA solver
+
+The CUDA source files contain the GPU implementation of the Element-by-Element
+DBCG solver.
+
+Two principal GPU execution strategies are provided:
+
+1. Atomic Element-by-Element implementation
+
+   Element contributions to shared global nodes are accumulated using CUDA
+   atomic operations.
+
+2. Graph-coloring Element-by-Element implementation
+
+   HEX8 elements are divided into independent color groups so that elements
+   processed within the same color do not share nodes. This allows the main
+   matrix-vector operations to be executed without atomic updates within each
+   color.
+
+## Nonlinear P(S) and time-dependent Q(t)
+
+Vanadis v2026.3.0 introduces a nonlinear concentration-dependent
+reaction/decay coefficient P(S).
+
+The resulting nonlinear problem is solved using Picard iteration within each
+time step while preserving the existing Directional Residual and
+Element-by-Element architecture.
+
+The source-term implementation has also been generalized to support
+time-dependent emissions Q(t), allowing constant, switched, pulsed, or other
+temporally varying source profiles.
+
+## CMAS 2026 reference release
+
+Vanadis v2026.2.1 remains the final reference release for the CMAS 2026 study.
+
+The nonlinear P(S) formulation and generalized time-dependent Q(t) source
+handling introduced in v2026.3.0 were developed after the CMAS 2026 reference
+version and were not part of the CMAS 2026 study.
+
+## Complete release package
+
+The full Vanadis v2026.3.0 distribution is available from:
+
+https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.3.0
+
+The release ZIP archive contains the complete source set, directory structure,
+configuration files, documentation, input datasets, and sample results.
+
+## Notes
+
+The src_v2026_3_0 directory contains selected key source files only.
+
+It is intended primarily for convenient inspection of the main implementation
+directly in the GitHub repository. For a complete Vanadis distribution, use
+the ZIP archive provided with the corresponding GitHub release.
 
 This file is informational only and does not affect licensing.

@@ -98,3 +98,17 @@ The release ZIP archive includes:
 - documentation  
 - input datasets  
 - sample results
+
+### Documentation — v2026.3.0
+
+Detailed technical documentation and architectural comparison materials
+for Vanadis 3D v2026.3.0.
+
+The technical description is based directly on the Fortran and CUDA source
+code of Vanadis v2026.3.0.
+
+#### Technical description
+- [English](docs/v2026_3_0/Vanadis_3D_v2026.3.0_full_technical_description_EN.pdf)
+
+#### Model architecture comparison
+- [English](docs/v2026_3_0/Vanadis_model_architecture_comparison_EN.pdf)

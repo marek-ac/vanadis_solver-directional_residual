@@ -1,0 +1,22 @@
+compilation and run instructions:
+---------------------------------------------------------------------------
+gfortran -O3 -fopenmp -ffixed-line-length-none vanadis_merge_all -o vanadis
+set OMP_NUM_THREADS=2
+vanadis
+---------------------------------------------------------------------------
+
+Improve DR stabilization, boundary conditions, OpenMP and output I/O
+
+- compute streamline element length from the inverse Jacobian
+- use streamwise diffusion in the Peclet number
+- make coth(Pe)-1/Pe evaluation numerically safe for small and large Pe
+- fix Gauss weights in the Robin boundary source term
+- fix Dirichlet face mapping for Hexa8 faces 5 and 6
+- document consistent Hexa8 ksi/eta/zeta face numbering
+- apply homogeneous Dirichlet BC on faces 1,2,4,5,6, excluding face 3
+- parallelize element matrix/vector assembly with OpenMP
+- make element-local COMMON blocks thread-private
+- add wall-clock timing for assembly, solver, total runtime and file splitting
+- buffer 3D result output in blocks of 100 records
+- replace vanadis_files with buffered X/Y/Z slice generation
+- retain the previous file-splitting routine as vanadis_files_old

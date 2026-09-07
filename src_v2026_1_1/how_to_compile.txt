@@ -1,0 +1,6 @@
+>gfortran --version
+GNU Fortran (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+
+
+>gfortran -O3 vanadis_full_DR.for -o vanadis_full_DR.exe

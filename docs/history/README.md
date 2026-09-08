@@ -1,10 +1,18 @@
 Historical publications and project history
 
 Vanadis has a documented development history dating back to the 1990s.
+The research line that later developed into Vanadis originated during doctoral
+work begun in 1994. Archived source code demonstrates that a working
+two-dimensional FEM atmospheric-transport model existed by 1995.
+
 The materials in this directory preserve the early publications and archival
 documents that show how the model evolved from an initial two-dimensional FEM
 formulation into the present three-dimensional transient solver.
 Project history
+
+    1995 — archived Pascal source code documents a working two-dimensional
+    FEM atmospheric-transport model developed during the doctoral research
+    begun in 1994.
 
     1997 — first published finite-element formulation for atmospheric pollutant
     dispersion. The published numerical implementation was two-dimensional,
@@ -67,14 +75,23 @@ of the Vanadis development line.
 History note
 
 A bilingual Polish/English history note in this directory provides a short
-overview of the development of Vanadis from the first published FEM formulation
-in 1997, through the transient model demonstrated in 1998 and the published 3D
-model in 1999, to the modern Vanadis architecture.
+overview of the development of Vanadis from doctoral work begun in 1994 and
+archived 2D FEM source code from 1995, through the first publication in 1997,
+the transient model demonstrated in 1998 and the published 3D model in 1999,
+to the modern Vanadis architecture.
 
 The historical record shows a continuous numerical-development line:
 
+1994
+doctoral research begun
+        |
+        v
+1995
+archived working 2D FEM source code
+        |
+        v
 1997
-2D FEM proof of concept
+first published FEM formulation / 2D proof of concept
         |
         v
 1998

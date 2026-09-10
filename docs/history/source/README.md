@@ -6,18 +6,51 @@ The files are retained as **historical software artifacts**. They are not part o
 
 If a historical program is restored for a modern compiler, the modified version should be stored separately (for example under a `restored/` subdirectory) while the historical source remains unchanged.
 
+## Relationship to the 1997 publications
+
+The preserved source code can now be compared with two distinct publications from 1997 documenting the atmospheric-transport FEM work.
+
+The Chodorski-Pietrzyk paper:
+
+> Marek Chodorski, Maciej Pietrzyk, *Propozycja zastosowania metody elementów skończonych do symulacji rozprzestrzeniania się zanieczyszczeń w atmosferze*, Ochrona Powietrza i Problemy Odpadów, 31(3), 90-93, 1997.
+
+presented a two-dimensional steady FEM implementation and discussed the numerical difficulty of convection-dominated transport.
+
+A separate POL-IMIS 1997 proceedings paper:
+
+> Marek Chodorski, Zbigniew Malinowski, Stanisław Słupek, Andrzej Buczek, *Zastosowanie metody elementów skończonych do modelu rozprzestrzeniania się zanieczyszczeń w atmosferze*, in: *Ocena wielkości imisji zanieczyszczeń powietrza*, POL-IMIS 1997, Szklarska Poręba, 19-22 June 1997, pp. 13-22.
+
+already documented a **three-dimensional atmospheric-dispersion FEM model using eight-node hexahedral elements**. The paper also presented calculation variants involving:
+
+- a transient concentration field 100 s after the start of emission;
+- lateral convection;
+- an obstacle placed in the pollutant plume;
+- a concentration-dependent removal coefficient of the form
+
+$$P=a_1+a_2 S+a_3 S^2.$$
+
+The POL-IMIS paper provides published evidence for these model capabilities. The archived source code in this directory provides complementary software evidence and, in some cases, exposes implementation details not stated in the proceedings paper, such as the Element-by-Element operator structure.
+
+The proceedings contents are independently listed by PZITS:
+
+https://www.pzits.not.pl/docs/ksiazki/pol_1997.html
+
+---
+
 ## Development overview
 
 | Period | Directory / file | Historical role | Main characteristics |
 |---|---|---|---|
 | 1995-1996 | `1995_2d_pascal/ART_SPEE.PAS` | early 2-D atmospheric-transport implementation | stationary FEM, triangular elements, convection-diffusion-reaction, Peclet-dependent upwind weighting, nonsymmetric band system |
-| 1997 | `1997_3d_stationary_nonlinear/GR_P_S.FOR` | 3-D stationary nonlinear prototype | HEX8 FEM, concentration-dependent reaction/removal coefficient, fixed-point iteration, EBE operator, iterative use of `A` and `A^T` |
-| 1997 | `1997_3d_transient_ebe/FM_T_OK.FOR` | early 3-D transient EBE branch | HEX8 FEM, transient mass matrix, implicit time integration, Element-by-Element operator, iterative nonsymmetric solve |
+| 1997 | `1997_3d_stationary_nonlinear/GR_P(S).FOR` | 3-D stationary nonlinear prototype | HEX8 FEM, concentration-dependent reaction/removal coefficient, fixed-point iteration, EBE operator, iterative use of `A` and `A^T` |
+| 1997 | `1997_3d_transient_ebe/fm_t_ok.for` | early 3-D transient EBE branch | HEX8 FEM, transient mass matrix, implicit time integration, Element-by-Element operator, iterative nonsymmetric solve |
 | 1997 | `1997_3d_transient_lu/LU_T_OK.FOR` | alternative transient implementation | HEX8 FEM, transient mass matrix, assembled global band matrix, LINPACK band-LU solution |
 | 1990s | `ftn90_visualization/1.f90` | interactive concentration-field viewer | Salford FTN90, VGA graphics, bilinear interpolation, colour mapping, mouse readout |
 | 1998 | `1998_defence_animation/` | transient-animation software used for the doctoral-defence presentation | PCX frame generation, frame preloading, VGA playback, simulation-time display |
 
 The dates above describe the historical development period and archival context. Historical archive timestamps are treated as provenance evidence rather than cryptographic proof of authorship dates.
+
+The archived copy corresponding to the transient EBE source has an internal archive timestamp of **9 August 1997**. This is useful provenance evidence, but it should not be interpreted as cryptographic proof of the authorship date.
 
 ---
 
@@ -49,7 +82,7 @@ The program documents the 2-D stage of the Vanadis development line: a working c
 
 ---
 
-## `1997_3d_stationary_nonlinear/GR_P_S.FOR`
+## `1997_3d_stationary_nonlinear/GR_P(S).FOR`
 
 A three-dimensional stationary transport prototype on a structured HEX8 mesh.
 
@@ -70,6 +103,14 @@ $$P(\bar S_e)=4\times10^{-6}+2\times10^{-4}|\bar S_e|+0.1|\bar S_e|^2.$$
 
 The nonlinear problem is solved by repeated assembly, linear solution and concentration update until the change between successive nodal solutions falls below a prescribed tolerance. In modern terminology this is a **Picard/fixed-point-type iteration**.
 
+### Published 1997 cross-check
+
+The separate POL-IMIS 1997 proceedings paper independently documents a concentration-dependent removal experiment. Its fifth calculation variant uses the general relationship
+
+$$P=a_1+a_2 S+a_3 S^2.$$
+
+The preserved source therefore provides an implementation-level counterpart to a nonlinear model feature that was already described publicly in 1997. The exact numerical coefficients in this archived source belong to the saved research case and should not be assumed to be identical to every calculation reported in the proceedings paper unless the corresponding case data are independently matched.
+
 ### Historical significance
 
 This source documents several ideas that later remained important in Vanadis: 3-D HEX8 transport, element-local matrix storage, EBE application of the global operator, use of both `A` and `A^T`, and concentration-dependent physics.
@@ -85,7 +126,7 @@ The original exponential implementation of the hyperbolic upwind parameter also 
 
 ---
 
-## `1997_3d_transient_ebe/FM_T_OK.FOR`
+## `1997_3d_transient_ebe/fm_t_ok.for`
 
 An early transient 3-D HEX8 implementation using Element-by-Element operator application instead of a conventional assembled global sparse matrix for the iterative solve.
 
@@ -100,9 +141,19 @@ Principal features include:
 - test logic for an obstacle and time-dependent changes of source/flow conditions;
 - output of successive concentration fields for post-processing and animation.
 
+### Published 1997 cross-check
+
+The POL-IMIS proceedings paper published earlier in 1997 independently documents that the atmospheric-dispersion model had already reached a **3-D HEX8** stage. It also includes a transient calculation showing the concentration field **100 s after the start of emission**, as well as variants with lateral convection and an obstacle.
+
+The archived transient source provides the corresponding implementation evidence for the 3-D transient development branch and additionally documents the **Element-by-Element** architecture and explicit `A x` / `A^T x` operators.
+
+The distinction is important: the proceedings paper supports the claims of 3-D HEX8 modelling and a transient calculation, while **the EBE implementation is established by the preserved source code rather than by an explicit statement in that paper**.
+
 ### Historical significance
 
 This file is one of the clearest early examples of the architecture that later characterised Vanadis: 3-D HEX8 finite elements combined with Element-by-Element operator application and an iterative nonsymmetric-system strategy.
+
+The archived copy corresponding to this source has an internal archive timestamp of **9 August 1997**, providing a dated provenance point for this implementation stage.
 
 ### Historical implementation note
 
@@ -179,6 +230,8 @@ The original animation was executed directly under DOS on contemporary hardware 
 
 An animation of transient Vanadis results was demonstrated during Marek Chodorski's public doctoral defence in 1998. The surviving animation software, transient solver source and defence documentation together preserve this stage of the Vanadis development history.
 
+The newly recovered POL-IMIS 1997 proceedings paper shows that a transient calculation had already been published the previous year. The 1998 defence therefore provides an additional dated public demonstration of the transient development line, including its animated visualisation, rather than the first evidence that transient calculations existed.
+
 ### Portability
 
 These programs depend on Salford FTN90/DOS graphics functions such as `vga@`, `screen_block_to_pcx@`, `pcx_to_screen_block@`, `restore_screen_block@`, `draw_text@` and related routines. Porting to a modern compiler would require replacement of the graphics layer.
@@ -196,9 +249,9 @@ docs/history/source/
 ├── 1995_2d_pascal/
 │   └── ART_SPEE.PAS
 ├── 1997_3d_stationary_nonlinear/
-│   └── GR_P_S.FOR
+│   └── GR_P(S).FOR
 ├── 1997_3d_transient_ebe/
-│   └── FM_T_OK.FOR
+│   └── fm_t_ok.for
 ├── 1997_3d_transient_lu/
 │   └── LU_T_OK.FOR
 ├── ftn90_visualization/
@@ -209,7 +262,7 @@ docs/history/source/
     └── vanadis1.webm
 ```
 
-The repository-friendly names `GR_P_S.FOR` and `FM_T_OK.FOR` may be used while documenting the historical filenames in the corresponding directory README if desired. Renaming a file does not alter its contents or SHA-256 digest.
+The filenames shown above follow the current repository paths. Historical/original filenames and any portability-related renaming are documented in the README files of the corresponding subdirectories.
 
 For any future reconstruction, a useful pattern is:
 
@@ -228,4 +281,11 @@ For any future reconstruction, a useful pattern is:
 
 These files should not be used to claim that every feature of the current Vanadis formulation was already present in the earliest code. They document a **development sequence**: 2-D FEM transport and Peclet-dependent upwinding, followed by 3-D HEX8 formulations, nonlinear experiments, transient integration, Element-by-Element operator application, alternative LU solution, and dedicated DOS/FTN90 visualisation and animation tools.
 
-Their value is historical and technical: they show how the Vanadis numerical architecture evolved through working research software rather than appearing as a single modern rewrite.
+The 1997 record is now supported by two complementary evidence types:
+
+- **published evidence** — the POL-IMIS proceedings paper documents a 3-D HEX8 atmospheric-dispersion model, a transient calculation, lateral convection, an obstacle case and concentration-dependent removal;
+- **software evidence** — the preserved 1997 Fortran sources document how the 3-D, transient, nonlinear and Element-by-Element branches were actually implemented.
+
+The two should be kept distinct. In particular, the published POL-IMIS paper does not by itself establish that the reported calculations used the EBE branch; the EBE architecture is directly evidenced by the preserved source code.
+
+Their combined value is historical and technical: they show how the Vanadis numerical architecture evolved through published scientific work and working research software rather than appearing as a single modern rewrite.

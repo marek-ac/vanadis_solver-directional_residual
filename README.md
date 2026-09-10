@@ -103,6 +103,13 @@ The architecture comparison discusses Vanadis in relation to Fluidity-Atmosphere
 
 ---
 
+## Historical development
+
+Vanadis has a documented numerical-development history dating back to the 1990s, including published 3-D FEM atmospheric-transport work and preserved source code from 1997.
+
+See [Historical publications and project history](docs/history/README.md).
+
+---
 ## CMAS 2026 reference
 
 Vanadis v2026.2.1 is the reference software release associated with the accepted oral presentation at the **25th Annual CMAS Conference, Chapel Hill, NC, October 2026**.

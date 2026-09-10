@@ -39,9 +39,7 @@ The code includes:
 
 The upwind parameter uses a hyperbolic-function expression equivalent to the classical form
 
-\[
-\coth(Pe)-\frac{1}{Pe}.
-\]
+$$\coth(Pe)-\frac{1}{Pe}.$$
 
 This code is a mathematical precursor of the later Vanadis stabilisation work, but it should **not** be described as the modern Directional Residual formulation.
 
@@ -68,11 +66,7 @@ The code contains:
 
 For the archived test case, the nonlinear coefficient is evaluated elementwise as
 
-\[
-P(\bar S_e)=4\times10^{-6}
-+2\times10^{-4}|\bar S_e|
-+0.1|\bar S_e|^2.
-\]
+$$P(\bar S_e)=4\times10^{-6}+2\times10^{-4}|\bar S_e|+0.1|\bar S_e|^2.$$
 
 The nonlinear problem is solved by repeated assembly, linear solution and concentration update until the change between successive nodal solutions falls below a prescribed tolerance. In modern terminology this is a **Picard/fixed-point-type iteration**.
 

@@ -31,6 +31,6 @@ Therefore the BDF2 variant does not require changes to the EBE operator represen
 
 The implementation difference is intentionally small and is provided as a reference patch:
 
-[`docs/numerics/theta23_to_bdf2.diff`](docs/numerics/theta23_to_bdf2.diff)
+[`docs/numerics/theta23_to_bdf2.diff`](theta23_to_bdf2.diff)
 
 The production Vanadis solver continues to use the $\theta=2/3$ scheme. In the tests performed during development, differences between the two formulations were small, while the $\theta=2/3$ formulation remained the preferred scheme for Vanadis.

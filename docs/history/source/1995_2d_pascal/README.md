@@ -64,9 +64,7 @@ alfa2:=(exp(gamma*0.5)+exp(-0.5*gamma))
 
 Mathematically, this corresponds to a weighting of the form
 
-\[
-\alpha = \coth(Pe)-\frac{1}{Pe},
-\]
+$$\alpha = \coth(Pe)-\frac{1}{Pe},$$
 
 with the local Peclet number represented by `gamma/2`.
 

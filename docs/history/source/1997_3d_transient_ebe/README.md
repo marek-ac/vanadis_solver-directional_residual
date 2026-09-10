@@ -169,15 +169,11 @@ subroutine atsub(...)
 
 implementing the actions
 
-\[
-y=A x
-\]
+$$y=A x$$
 
 and
 
-\[
-y=A^T x.
-\]
+$$y=A^T x.$$
 
 Each routine traverses the HEX8 elements, applies the corresponding local `8 x 8` matrix, and accumulates contributions into the global vector.
 

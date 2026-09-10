@@ -1,0 +1,127 @@
+--- /mnt/data/vanadis_full_DR.for	2026-08-11 06:37:46.129013344 +0000
++++ /mnt/data/vanadis_full_DR_BDF2.for	2026-08-11 06:38:24.896371935 +0000
+@@ -33,7 +33,7 @@
+          dimension iss((nax - 1) * (nay - 1) * (naz - 1), 8)
+          dimension kod((nax - 1) * (nay - 1) * (naz - 1), 6)
+          dimension bb((nax - 1) * (nay - 1) * (naz - 1) * 64)
+-         dimension tnw2(nax * nay * naz)
++         dimension tnw2(nax * nay * naz), tnw1(nax * nay * naz)
+ 		 
+ 		 dimension kod2((nax - 1) * (nay - 1) * (naz - 1), 6)
+ 		 
+@@ -59,7 +59,7 @@
+          do while (i_czas .lt. max_time)
+ 
+             call przest3d(i_czas, xx, yy, zz, iss, kod, t, nax, nay,
+-     &                    naz, bb, il_iteracji, ttol, tnw2)
++     &                    naz, bb, il_iteracji, ttol, tnw2, tnw1)
+ 	 
+ c------------------------------------------------------------
+ c  LICZENIE MASY PO KAŻDYM KROKU CZASOWYM
+@@ -604,7 +604,7 @@
+       end
+ 
+       subroutine przest3d (i_czas, xx, yy, zz, iss, kod, t, nax, nay,
+-     &                     naz, bb, il_iteracji, ttol, tnw2)
++     &                     naz, bb, il_iteracji, ttol, tnw2, tnw1)
+ 
+          implicit real*8 (a - h, o - z)
+ 
+@@ -612,8 +612,9 @@
+          dimension iss((nax - 1) * (nay - 1) * (naz - 1), 8)
+          dimension kod((nax - 1) * (nay - 1) * (naz - 1), 6)
+ 
+-         dimension tnw2(nax * nay * naz), hma_t(8, 8), fmv_t(8),
+-     &                  wekt_t(8)
++         dimension tnw2(nax * nay * naz), tnw1(nax * nay * naz),
++     &                  hma_t(8, 8), fmv_t(8), wekt_t(8),
++     &                  wekt_n(8), wekt_nm1(8), cv_n(8), cv_nm1(8)
+ 
+          character*20 wynik_t
+ 
+@@ -638,6 +639,7 @@
+          if (i_czas .eq. 0) then
+             do ii2 = 1, ilosc_wezlow
+                tnw2(ii2) = 0.d0
++               tnw1(ii2) = 0.d0
+             enddo
+          endif
+ 
+@@ -670,25 +672,46 @@
+             call data3d (jk, iss, xx, yy, zz, nax, nay, naz)
+             call el3d (i_czas, jk, t, kod, nax, nay, naz)
+ 
+-            do i = 1, 8
+-               do j = 1, 8
+-                  hma_t(i, j) = hma(i, j) - 3.0d+00 / i_d_czas *
+-     &            cma_n(i, j)
++!--------------------------------------------------------------------
++! wypelnianie macierzy i wektora dla kroku czasowego
++! pierwszy krok - dotychczasowy schemat, kolejne kroki - BDF2
++!
++            if (i_czas .eq. i_d_czas) then
++
++               do i = 1, 8
++                  do j = 1, 8
++                     hma_t(i, j) = hma(i, j) - 3.0d+00 / i_d_czas *
++     &               cma_n(i, j)
++                  enddo
+                enddo
+-            enddo
+ 
+-            do i4 = 1, 8
+-               wekt_t(i4) = tnw2(i_ot_elem(i4))
+-            enddo
++               do i4 = 1, 8
++                  wekt_t(i4) = tnw2(i_ot_elem(i4))
++               enddo
+ 
+-            call ilo_m_v(hma_t, wekt_t, 8, fmv_t)
++               call ilo_m_v(hma_t, wekt_t, 8, fmv_t)
+ 
+-!--------------------------------------------------------------------
+-! wypelnianie macierzy i wektora dla kroku czasowego
+-!
+-            do i = 1, 8
+-               fmv2d(i) = 3.0d+00 * fmv(i) - fmv_t(i)
+-            enddo
++               do i = 1, 8
++                  fmv2d(i) = 3.0d+00 * fmv(i) - fmv_t(i)
++               enddo
++
++            else
++
++               do i4 = 1, 8
++                  wekt_n(i4) = tnw2(i_ot_elem(i4))
++                  wekt_nm1(i4) = tnw1(i_ot_elem(i4))
++               enddo
++
++               call ilo_m_v(cma_n, wekt_n, 8, cv_n)
++               call ilo_m_v(cma_n, wekt_nm1, 8, cv_nm1)
++
++               do i = 1, 8
++                  fmv2d(i) = 2.0d+00 * fmv(i)
++     &                     + 4.0d+00 / i_d_czas * cv_n(i)
++     &                     - 1.0d+00 / i_d_czas * cv_nm1(i)
++               enddo
++
++            endif
+ 
+             do i = 1, 8
+                do j = 1, 8
+@@ -745,9 +768,15 @@
+                fmv3(i)  = 0.0d0      ! prawa strona = 0
+                diag(i)  = 1.0d0      ! preconditioner: M_ii = 1
+                tnw2(i)  = 0.0d0      ! rozwiązanie na brzegu = 0
++               tnw1(i)  = 0.0d0
+             endif
+          enddo
+ 
++!        zachowanie phi(n) jako phi(n-1) dla nastepnego kroku BDF2
++         do i = 1, ilosc_wezlow
++            tnw1(i) = tnw2(i)
++         enddo
++
+          T1 = SECOND()
+ 
+          call dbcg_simple(non, fmv3, tnw2, tol, il_i, iter, err, bb,

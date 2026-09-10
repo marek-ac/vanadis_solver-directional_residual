@@ -114,9 +114,7 @@ enddo
 
 or:
 
-\[
-S(\xi,\eta)=\sum_{i=1}^{4}N_i(\xi,\eta)\,S_i.
-\]
+$$S(\xi,\eta)=\sum_{i=1}^{4}N_i(\xi,\eta)\,S_i.$$
 
 The display is therefore based on interpolation of the finite-element field rather than on nearest-node colouring.
 

@@ -107,15 +107,7 @@ pzanik=4e-6
 
 or, mathematically,
 
-\[
-P(\bar S_e)
-=
-4\times10^{-6}
-+
-2\times10^{-4}|\bar S_e|
-+
-0.1|\bar S_e|^2.
-\]
+$$P(\bar S_e) = 4\times10^{-6} + 2\times10^{-4}|\bar S_e| + 0.1|\bar S_e|^2.$$
 
 This makes the stationary transport problem nonlinear.
 
@@ -159,15 +151,11 @@ atsub
 
 implementing:
 
-\[
-y = A x
-\]
+$$y = A x$$
 
 and
 
-\[
-y = A^T x.
-\]
+$$y = A^T x.$$
 
 `asub` accumulates the contributions of the local `8 x 8` matrices directly into the global output vector.
 

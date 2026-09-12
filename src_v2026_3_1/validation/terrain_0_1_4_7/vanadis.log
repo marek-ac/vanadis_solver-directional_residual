@@ -1,0 +1,702 @@
+R_poprawki/Archiwum/pofalowany_terean/final_version$ ./vanadis
+ ******************************************************
+
+  Vanadis 3D - A three-dimensional FEM model
+               for atmospheric pollutant transport
+
+  author:   Marek Chodorski
+  e-mail:   marek_ac@wp.pl
+
+ ******************************************************
+
+  Configuration parameters:
+
+ Q[kg/s]    =    0.10D+01
+ K[m^2/s]   =    0.40D+02
+ P[1/s]     =    0.70D-03
+ V1[m/s]    =    0.00D+00
+ V2[m/s]    =   -0.50D+01
+ V3[m/s]    =    0.00D+00
+ ALPHA[m/s] =    0.10D-01
+  v,K,alpha are evaluated locally at Gauss points.
+
+  Results in T_ttttt.TXT X[m],Y[m],Z[m],                       S(x,y,z)[mg/m^3]
+
+  Results are written to output directory
+
+  IS IT CORRECT?  [Y/N]
+Y
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.70000E-03
+ Czas montowania macierzy/wektora =    2.9456111999934365E-002  sekund
+ solving a system of equations...
+ Czas solvera =   0.35750991599991266       sekund
+ OK - number of iterations:    64 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6836E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1000E+01
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.36831E-02
+ Czas montowania macierzy/wektora =    2.5254809999978534E-002  sekund
+ solving a system of equations...
+ Czas solvera =    5.5013224999925114E-002  sekund
+ OK - number of iterations:    53 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.2428E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.2652E-01
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.36394E-02
+ Czas montowania macierzy/wektora =    1.6757514999994783E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.8217834999963998E-002  sekund
+ OK - number of iterations:    36 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8725E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.6136E-03
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.36400E-02
+ Czas montowania macierzy/wektora =    2.7565930999912780E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.6204008000036083E-002  sekund
+ OK - number of iterations:    26 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7095E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.1176E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.36399E-02
+ Czas montowania macierzy/wektora =    1.7989478000004056E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.2650000000007822E-002  sekund
+ OK - number of iterations:    12 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7342E-08 ---
+ nonlinear P(S) iteration:   5  relative change: 0.1973E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.36399E-02
+ Czas montowania macierzy/wektora =    1.6772544999980710E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.6452900000322188E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7573E-08 ---
+ nonlinear P(S) iteration:   6  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.6150900999937221E-002  sekund
+ czas=         100  masa=   92.464171803846924
+ MASS BALANCE [kg]: dM=   92.464171803846924       Q=   100.00000000000000       OUT=   8.0418091434930487E-017  IN=   3.5585182762319147E-017
+                      DIV=   0.0000000000000000       P=   8.3754612219080506       ALPHA=  0.39292795029554939       DIR=  -1.2325607447877904       EPS=   2.3126273163143196E-007
+ CUMULATIVE [kg]: Q=   100.00000000000000       OUT=   8.0418091434930487E-017  IN=   3.5585182762319147E-017  DIV=   0.0000000000000000       P=   8.3754612219080506       ALPHA=  0.39292795029554939       DIR=  -1.2325607447877904       EPS=   2.3126273163143196E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.36399E-02
+ Czas montowania macierzy/wektora =    1.9153105999976106E-002  sekund
+ solving a system of equations...
+ Czas solvera =    5.0193285999966974E-002  sekund
+ OK - number of iterations:    69 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7029E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.4416E+00
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.27786E-02
+ Czas montowania macierzy/wektora =    1.6266533000020900E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.8430760999972335E-002  sekund
+ OK - number of iterations:    48 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9892E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.5589E-02
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.27872E-02
+ Czas montowania macierzy/wektora =    1.8148596999935762E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.0008672999997543E-002  sekund
+ OK - number of iterations:    34 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9361E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.8162E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.27871E-02
+ Czas montowania macierzy/wektora =    1.6477547000022241E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.1388693999938369E-002  sekund
+ OK - number of iterations:    23 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5574E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.1651E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.27871E-02
+ Czas montowania macierzy/wektora =    2.1807202999980291E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.1008855000000040E-002  sekund
+ OK - number of iterations:     6 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8067E-08 ---
+ nonlinear P(S) iteration:   5  relative change: 0.3619E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.27871E-02
+ Czas montowania macierzy/wektora =    1.7788508999956321E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.9828829999823938E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7988E-08 ---
+ nonlinear P(S) iteration:   6  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.6239093999947727E-002  sekund
+ czas=         200  masa=   182.87411385128766
+ MASS BALANCE [kg]: dM=   90.409942047440737       Q=   100.00000000000000       OUT=   1.0729711750255389E-016  IN=   4.6939677843570249E-017
+                      DIV=   0.0000000000000000       P=   17.780448897739095       ALPHA=  0.97335339729631698       DIR=  -9.1637436226276883       EPS=   7.1984845817496534E-007
+ CUMULATIVE [kg]: Q=   200.00000000000000       OUT=   1.8771520893748438E-016  IN=   8.2524860605889396E-017  DIV=   0.0000000000000000       P=   26.155910119647146       ALPHA=   1.3662813475918663       DIR=  -10.396304367415478       EPS=   9.5111118980639731E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.27871E-02
+ Czas montowania macierzy/wektora =    2.2950862000016059E-002  sekund
+ solving a system of equations...
+ Czas solvera =    5.7500100999959614E-002  sekund
+ OK - number of iterations:    71 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7629E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1791E+00
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.30226E-02
+ Czas montowania macierzy/wektora =    1.7940877000000910E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.2098728000050869E-002  sekund
+ OK - number of iterations:    45 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8828E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.1640E-02
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.30197E-02
+ Czas montowania macierzy/wektora =    1.9910827999979119E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.6783807000015258E-002  sekund
+ OK - number of iterations:    31 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8048E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.1938E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.30197E-02
+ Czas montowania macierzy/wektora =    1.7762446000006094E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.4357732999997097E-002  sekund
+ OK - number of iterations:    16 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9158E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.3251E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.30197E-02
+ Czas montowania macierzy/wektora =    1.6610367999987830E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.6510070000304040E-003  sekund
+ OK - number of iterations:     2 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6723E-08 ---
+ nonlinear P(S) iteration:   5  relative change: 0.4467E-08
+ Czas zapisu na dysk =    2.5942178000036620E-002  sekund
+ czas=         300  masa=   276.30364879622607
+ MASS BALANCE [kg]: dM=   93.429534944938410       Q=   100.00000000000000       OUT=   9.9639734496434537E-017  IN=   4.3631675770670500E-017
+                      DIV=   0.0000000000000000       P=   25.444318248986335       ALPHA=   1.4605626950027872       DIR=  -20.334416698669937       EPS=  -8.0974240290743182E-007
+ CUMULATIVE [kg]: Q=   300.00000000000000       OUT=   2.8735494343391894E-016  IN=   1.2615653637655991E-016  DIV=   0.0000000000000000       P=   51.600228368633481       ALPHA=   2.8268440425946535       DIR=  -30.730721066085415       EPS=   1.4136878689896548E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.30197E-02
+ Czas montowania macierzy/wektora =    1.7129920999991555E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.7238749000030111E-002  sekund
+ OK - number of iterations:    65 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9700E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.7914E-01
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29645E-02
+ Czas montowania macierzy/wektora =    1.8542026999966765E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.8879383999983474E-002  sekund
+ OK - number of iterations:    44 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7632E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.5837E-03
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29653E-02
+ Czas montowania macierzy/wektora =    2.0853804000012133E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.3728035999965869E-002  sekund
+ OK - number of iterations:    26 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8696E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.5818E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29652E-02
+ Czas montowania macierzy/wektora =    1.6667204999976093E-002  sekund
+ solving a system of equations...
+ Czas solvera =    8.2862880000220684E-003  sekund
+ OK - number of iterations:    10 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5466E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.6993E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29652E-02
+ Czas montowania macierzy/wektora =    1.7603261999965980E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.0812329999889698E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5687E-08 ---
+ nonlinear P(S) iteration:   5  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5007722999930593E-002  sekund
+ czas=         400  masa=   355.47914666143384
+ MASS BALANCE [kg]: dM=   79.175497865207774       Q=   100.00000000000000       OUT=   1.0169462795015151E-016  IN=   4.4550089221650106E-017
+                      DIV=   0.0000000000000000       P=   32.101307090925054       ALPHA=   1.8457051948996377       DIR=  -13.122510063650054       EPS=   8.7382403535229969E-008
+ CUMULATIVE [kg]: Q=   400.00000000000000       OUT=   3.8904957138407042E-016  IN=   1.7070662559821002E-016  DIV=   0.0000000000000000       P=   83.701535459558528       ALPHA=   4.6725492374942910       DIR=  -43.853231129735470       EPS=   2.2875119043419545E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29652E-02
+ Czas montowania macierzy/wektora =    1.5509111000028497E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.6935918000031052E-002  sekund
+ OK - number of iterations:    64 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5476E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.3581E-01
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29741E-02
+ Czas montowania macierzy/wektora =    1.5769538999961696E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.5275891999958731E-002  sekund
+ OK - number of iterations:    46 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8455E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.2152E-03
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    1.9274394000035500E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.7471344000000499E-002  sekund
+ OK - number of iterations:    17 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9973E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.1834E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    1.6549219000012272E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.8245379999798388E-003  sekund
+ OK - number of iterations:     4 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9966E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.1901E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    1.6235061999964273E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.2228620000532828E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9890E-08 ---
+ nonlinear P(S) iteration:   5  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.6278588999957719E-002  sekund
+ czas=         500  masa=   398.02993445532144
+ MASS BALANCE [kg]: dM=   42.550787793887594       Q=   100.00000000000000       OUT=   1.0125385053131408E-016  IN=   4.4336661855493602E-017
+                      DIV=   0.0000000000000000       P=   36.354699380543607       ALPHA=   2.0768385866560126       DIR=   19.017673513261848       EPS=  -7.2565094200172098E-007
+ CUMULATIVE [kg]: Q=   500.00000000000000       OUT=   4.9030342191538453E-016  IN=   2.1504328745370362E-016  DIV=   0.0000000000000000       P=   120.05623484010214       ALPHA=   6.7493878241503040       DIR=  -24.835557616473622       EPS=  -4.9689975156752553E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    600 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    1.7715734000034900E-002  sekund
+ solving a system of equations...
+ Czas solvera =    5.8251469999959227E-002  sekund
+ OK - number of iterations:    62 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6724E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1425E-01
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    600 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29749E-02
+ Czas montowania macierzy/wektora =    1.7994391000001997E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.7833369999939350E-002  sekund
+ OK - number of iterations:    34 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8824E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.7913E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    600 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29749E-02
+ Czas montowania macierzy/wektora =    1.7784508999966420E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.5724598000019796E-002  sekund
+ OK - number of iterations:    20 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3822E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.7048E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    600 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29749E-02
+ Czas montowania macierzy/wektora =    1.6914095999936762E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.5952959999813174E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9207E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.4526903000037237E-002  sekund
+ czas=         600  masa=   409.27662520222771
+ MASS BALANCE [kg]: dM=   11.246690746906268       Q=   100.00000000000000       OUT=   1.0129674509378801E-016  IN=   4.4367742993569955E-017
+                      DIV=   0.0000000000000000       P=   38.020234503616017       ALPHA=   2.1577499349053237       DIR=   48.575326777918967       EPS=   1.9633465768720271E-006
+ CUMULATIVE [kg]: Q=   600.00000000000000       OUT=   5.9160016700917258E-016  IN=   2.5941103044727355E-016  DIV=   0.0000000000000000       P=   158.07646934371814       ALPHA=   8.9071377590556278       DIR=   23.739769161445345       EPS=   1.4664468253045015E-006
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    700 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29749E-02
+ Czas montowania macierzy/wektora =    1.6130624000084026E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.2842784999947980E-002  sekund
+ OK - number of iterations:    55 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7725E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.6179E-02
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    700 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29730E-02
+ Czas montowania macierzy/wektora =    1.8371736999938548E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.5897228000067116E-002  sekund
+ OK - number of iterations:    31 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9091E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.2849E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    700 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29730E-02
+ Czas montowania macierzy/wektora =    1.7307888000004823E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.6308316000049672E-002  sekund
+ OK - number of iterations:    17 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6899E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.2567E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    700 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29730E-02
+ Czas montowania macierzy/wektora =    1.7511651999939204E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.9099959999948624E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7489E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5431610999930854E-002  sekund
+ czas=         700  masa=   410.66263172609013
+ MASS BALANCE [kg]: dM=   1.3860065238624202       Q=   100.00000000000000       OUT=   1.0132589488356454E-016  IN=   4.4374367080888589E-017
+                      DIV=   0.0000000000000000       P=   38.373711517002953       ALPHA=   2.1727495939502686       DIR=   58.067531470876823       EPS=  -8.9430753291708243E-007
+ CUMULATIVE [kg]: Q=   700.00000000000000       OUT=   6.9292606189273716E-016  IN=   3.0378539752816213E-016  DIV=   0.0000000000000000       P=   196.45018086072110       ALPHA=   11.079887353005896       DIR=   81.807300632322168       EPS=   5.7213929238741912E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    800 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29730E-02
+ Czas montowania macierzy/wektora =    1.7385201000024608E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.1370503000052850E-002  sekund
+ OK - number of iterations:    52 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4727E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.2769E-02
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    800 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29743E-02
+ Czas montowania macierzy/wektora =    1.6695289000040248E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.2797307000018918E-002  sekund
+ OK - number of iterations:    29 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6156E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.1086E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    800 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29743E-02
+ Czas montowania macierzy/wektora =    1.7724641999961932E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.1558145999970293E-002  sekund
+ OK - number of iterations:    12 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4363E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.8900E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    800 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29743E-02
+ Czas montowania macierzy/wektora =    1.7445769999994809E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.0698390000006839E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4299E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.7021319000027688E-002  sekund
+ czas=         800  masa=   411.53514719982024
+ MASS BALANCE [kg]: dM=  0.87251547373011817       Q=   100.00000000000000       OUT=   1.0129868308224903E-016  IN=   4.4365206778841437E-017
+                      DIV=   0.0000000000000000       P=   38.453577832417366       ALPHA=   2.1770006015047798       DIR=   58.496906232273076       EPS=   1.3992534064755091E-007
+ CUMULATIVE [kg]: Q=   800.00000000000000       OUT=   7.9422474497498616E-016  IN=   3.4815060430700358E-016  DIV=   0.0000000000000000       P=   234.90375869313846       ALPHA=   13.256887954510676       DIR=   140.30420686459524       EPS=   7.1206463303497003E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    900 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29743E-02
+ Czas montowania macierzy/wektora =    1.6943577000006371E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.0683297999976276E-002  sekund
+ OK - number of iterations:    52 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.2055E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1219E-02
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    900 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29736E-02
+ Czas montowania macierzy/wektora =    1.7934625000066262E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.9322975000022780E-002  sekund
+ OK - number of iterations:    24 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5080E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.4514E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    900 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29736E-02
+ Czas montowania macierzy/wektora =    1.9621803000063665E-002  sekund
+ solving a system of equations...
+ Czas solvera =    7.1917390000635351E-003  sekund
+ OK - number of iterations:     4 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7991E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.2762E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:    900 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29736E-02
+ Czas montowania macierzy/wektora =    1.9074786999908611E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.9503070000155276E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7848E-08 ---
+ nonlinear P(S) iteration:   4  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5523065000015777E-002  sekund
+ czas=         900  masa=   411.84805125858736
+ MASS BALANCE [kg]: dM=  0.31290405876711702       Q=   100.00000000000000       OUT=   1.0131467375433068E-016  IN=   4.4371063364488809E-017
+                      DIV=   0.0000000000000000       P=   38.491974089356567       ALPHA=   2.1791095702965944       DIR=   59.016013046654329       EPS=   7.6507460988750609E-007
+ CUMULATIVE [kg]: Q=   900.00000000000000       OUT=   8.9553941872931691E-016  IN=   3.9252166767149241E-016  DIV=   0.0000000000000000       P=   273.39573278249503       ALPHA=   15.435997524807270       DIR=   199.32021991124958       EPS=   1.4771392429224761E-006
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1000 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29736E-02
+ Czas montowania macierzy/wektora =    1.8429396999977143E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.7787276000017300E-002  sekund
+ OK - number of iterations:    50 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6028E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.5360E-03
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1000 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    1.9243318000008003E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.6236810999989757E-002  sekund
+ OK - number of iterations:    21 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8713E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.1902E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1000 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    2.5111837999929776E-002  sekund
+ solving a system of equations...
+ Czas solvera =    6.0689109999430002E-003  sekund
+ OK - number of iterations:     4 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3467E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.9918E-08
+ Czas zapisu na dysk =    2.5427519999993820E-002  sekund
+ czas=        1000  masa=   411.85122721070377
+ MASS BALANCE [kg]: dM=   3.1759521164076432E-003  Q=   100.00000000000000       OUT=   1.0130665317933066E-016  IN=   4.4367995419313379E-017
+                      DIV=   0.0000000000000000       P=   38.499795732940889       ALPHA=   2.1793900650984681       DIR=   59.317637807618596       EPS=  -4.4222564099527517E-007
+ CUMULATIVE [kg]: Q=   1000.0000000000000       OUT=   9.9684607190864752E-016  IN=   4.3688966309080579E-016  DIV=   0.0000000000000000       P=   311.89552851543590       ALPHA=   17.615387589905737       DIR=   258.63785771886819       EPS=   1.0349136019272009E-006
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29739E-02
+ Czas montowania macierzy/wektora =    1.8954549999989467E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.8444600000048013E-002  sekund
+ OK - number of iterations:    44 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4547E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.2386E-03
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.9041876000064804E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.4299994999987575E-002  sekund
+ OK - number of iterations:    15 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9261E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.7636E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1100 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.9921501999988322E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.8505870000117284E-003  sekund
+ OK - number of iterations:     1 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7321E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.2786E-08
+ Czas zapisu na dysk =    2.8092282999978124E-002  sekund
+ czas=        1100  masa=   411.88347148826767
+ MASS BALANCE [kg]: dM=   3.2244277563904689E-002  Q=   100.00000000000000       OUT=   1.0131036088798496E-016  IN=   4.4369459560097829E-017
+                      DIV=   0.0000000000000000       P=   38.501515684047085       ALPHA=   2.1794952217454409       DIR=   59.286745036304737       EPS=   2.1966116747762499E-007
+ CUMULATIVE [kg]: Q=   1100.0000000000000       OUT=   1.0981564327966325E-015  IN=   4.8125912265090358E-016  DIV=   0.0000000000000000       P=   350.39704419948299       ALPHA=   19.794882811651178       DIR=   317.92460275517294       EPS=   1.2545747694048259E-006
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8304564000004575E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.0815273000021079E-002  sekund
+ OK - number of iterations:    39 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3497E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1071E-03
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.9437673999959770E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.1975277000033202E-002  sekund
+ OK - number of iterations:    13 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4905E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.2982E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1200 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.1454859000073156E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.0446030000111932E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5287E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.4887703999979749E-002  sekund
+ czas=        1200  masa=   411.88811951913635
+ MASS BALANCE [kg]: dM=   4.6480308686795979E-003  Q=   100.00000000000000       OUT=   1.0130873117057757E-016  IN=   4.4368797297778879E-017
+                      DIV=   0.0000000000000000       P=   38.502566512683835       ALPHA=   2.1795527837685458       DIR=   59.313231912294228       EPS=  -7.6038471519268569E-007
+ CUMULATIVE [kg]: Q=   1200.0000000000000       OUT=   1.1994651639672101E-015  IN=   5.2562791994868243E-016  DIV=   0.0000000000000000       P=   388.89961071216680       ALPHA=   21.974435595419724       DIR=   377.23783466746715       EPS=   4.9419005421214024E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8253693000019666E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.4633450000010271E-002  sekund
+ OK - number of iterations:    31 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8957E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.4838E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.6952014000025883E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.5789304000008997E-002  sekund
+ OK - number of iterations:    13 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5500E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.1160E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1300 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8716147000077399E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.2358830000021044E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5628E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.0000E+00
+ Czas zapisu na dysk =    4.1089596000006168E-002  sekund
+ czas=        1300  masa=   411.88764631253338
+ MASS BALANCE [kg]: dM=  -4.7320660297600625E-004  Q=   100.00000000000000       OUT=   1.0130942322693777E-016  IN=   4.4369086839201595E-017
+                      DIV=   0.0000000000000000       P=   38.502649022736229       ALPHA=   2.1795519781035217       DIR=   59.318272641036458       EPS=   4.3527323612124746E-007
+ CUMULATIVE [kg]: Q=   1300.0000000000000       OUT=   1.3007745871941480E-015  IN=   5.6999700678788406E-016  DIV=   0.0000000000000000       P=   427.40225973490305       ALPHA=   24.153987573523246       DIR=   436.55610730850361       EPS=   9.2946329033338770E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.1266023999942263E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.6607588999922882E-002  sekund
+ OK - number of iterations:    31 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3382E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.2175E-04
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8006560999992871E-002  sekund
+ solving a system of equations...
+ Czas solvera =    7.8366569999843705E-003  sekund
+ OK - number of iterations:     9 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4496E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.4602E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1400 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.8105427000014060E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.3519100000157778E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4517E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5844221999932415E-002  sekund
+ czas=        1400  masa=   411.88921192822511
+ MASS BALANCE [kg]: dM=   1.5656156917316366E-003  Q=   100.00000000000000       OUT=   1.0130913673912403E-016  IN=   4.4368963140110158E-017
+                      DIV=   0.0000000000000000       P=   38.502718125486602       ALPHA=   2.1795575502686830       DIR=   59.316158412172612       EPS=  -2.9638037091217484E-007
+ CUMULATIVE [kg]: Q=   1400.0000000000000       OUT=   1.4020837239332719E-015  IN=   6.1436596992799425E-016  DIV=   0.0000000000000000       P=   465.90497786038964       ALPHA=   26.333545123791929       DIR=   495.87226572067624       EPS=   6.3308291942121286E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.7330922000032842E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.1173947000070257E-002  sekund
+ OK - number of iterations:    29 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7317E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.9723E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.6324101999998675E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.2211969999925714E-003  sekund
+ OK - number of iterations:     3 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7041E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.1872E-07
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1500 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8706615000041893E-002  sekund
+ solving a system of equations...
+ Czas solvera =    4.9887789999729648E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7028E-08 ---
+ nonlinear P(S) iteration:   3  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.6414238000029400E-002  sekund
+ czas=        1500  masa=   411.88886647338808
+ MASS BALANCE [kg]: dM=  -3.4545483703141144E-004  Q=   100.00000000000000       OUT=   1.0130925302825862E-016  IN=   4.4369015139973654E-017
+                      DIV=   0.0000000000000000       P=   38.502739355285883       ALPHA=   2.1795580942501220       DIR=   59.318048290670603       EPS=   2.8536957330516088E-007
+ CUMULATIVE [kg]: Q=   1500.0000000000000       OUT=   1.5033929769615305E-015  IN=   6.5873498506796791E-016  DIV=   0.0000000000000000       P=   504.40771721567552       ALPHA=   28.513103218042051       DIR=   555.19031401134680       EPS=   9.1845249272637375E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1600 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.7271862000029614E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.1339614999988044E-002  sekund
+ OK - number of iterations:    25 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.6846E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.4349E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1600 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.7412861000025259E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.9600679999930435E-003  sekund
+ OK - number of iterations:     1 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.7527E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.5687E-08
+ Czas zapisu na dysk =    2.5589632999981404E-002  sekund
+ czas=        1600  masa=   411.88903102960819
+ MASS BALANCE [kg]: dM=   1.6455622011335436E-004  Q=   100.00000000000000       OUT=   1.0130920674543737E-016  IN=   4.4368993550034721E-017
+                      DIV=   0.0000000000000000       P=   38.502738738559323       ALPHA=   2.1795580935788212       DIR=   59.317538479581081       EPS=  -1.3206066284965345E-007
+ CUMULATIVE [kg]: Q=   1600.0000000000000       OUT=   1.6047021837069679E-015  IN=   7.0310397861800267E-016  DIV=   0.0000000000000000       P=   542.91045595423486       ALPHA=   30.692661311620874       DIR=   614.50785249092792       EPS=   7.8639182987672029E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1700 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.2283455999968282E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.9921726000006856E-002  sekund
+ OK - number of iterations:    20 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.5947E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1954E-05
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1700 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8796006999991732E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.1710390001080668E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8016E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5128341000026921E-002  sekund
+ czas=        1700  masa=   411.88901914904744
+ MASS BALANCE [kg]: dM=  -1.1880560748522839E-005  Q=   100.00000000000000       OUT=   1.0130922475005243E-016  IN=   4.4369002393102452E-017
+                      DIV=   0.0000000000000000       P=   38.502742413984755       ALPHA=   2.1795583391484605       DIR=   59.317711376848223       EPS=   2.4942069387634547E-007
+ CUMULATIVE [kg]: Q=   1700.0000000000000       OUT=   1.7060114084570202E-015  IN=   7.4747298101110516E-016  DIV=   0.0000000000000000       P=   581.41319836821958       ALPHA=   32.872219650769338       DIR=   673.82556386777617       EPS=   1.0358125237530658E-006
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1800 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.5455198000031487E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.4324556999999913E-002  sekund
+ OK - number of iterations:    18 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.3732E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.8851E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1800 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.7397069000026022E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.7521719999867855E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.4357E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.4427113999990979E-002  sekund
+ czas=        1800  masa=   411.88901749794456
+ MASS BALANCE [kg]: dM=  -1.6511028775312298E-006  Q=   100.00000000000000       OUT=   1.0130921780283412E-016  IN=   4.4368998794935497E-017
+                      DIV=   0.0000000000000000       P=   38.502741935215887       ALPHA=   2.1795582717184505       DIR=   59.317701354058926       EPS=  -9.0109615769051743E-008
+ CUMULATIVE [kg]: Q=   1800.0000000000000       OUT=   1.8073206262598545E-015  IN=   7.9184197980604070E-016  DIV=   0.0000000000000000       P=   619.91594030343549       ALPHA=   35.051777922487787       DIR=   733.14326522183512       EPS=   9.4570290798401402E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1900 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.7099442000017007E-002  sekund
+ solving a system of equations...
+ Czas solvera =    1.7614739000009649E-002  sekund
+ OK - number of iterations:    14 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9058E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.4025E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   1900 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    2.3387479000007261E-002  sekund
+ solving a system of equations...
+ Czas solvera =    2.7227389999779916E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.9116E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5379561000022477E-002  sekund
+ czas=        1900  masa=   411.88902424092464
+ MASS BALANCE [kg]: dM=   6.7429800765239634E-006  Q=   100.00000000000000       OUT=   1.0130922041917248E-016  IN=   4.4369000210429283E-017
+                      DIV=   0.0000000000000000       P=   38.502742262390768       ALPHA=   2.1795583065926585       DIR=   59.317692700548548       EPS=   1.2512053615409968E-008
+ CUMULATIVE [kg]: Q=   1900.0000000000000       OUT=   1.9086298466790270E-015  IN=   8.3621098001646999E-016  DIV=   0.0000000000000000       P=   658.41868256582620       ALPHA=   37.231336229080448       DIR=   792.46095792238361       EPS=   9.5821496159942399E-007
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   2000 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.7560296999931779E-002  sekund
+ solving a system of equations...
+ Czas solvera =    8.0948930000204200E-003  sekund
+ OK - number of iterations:     8 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8953E-08 ---
+ nonlinear P(S) iteration:   1  relative change: 0.1832E-06
+
+matrix/vector creation... nr of elements:   2166  nodes:    2800 time:   2000 sec
+ P(S) range [1/s]: min= 0.70000E-03  max= 0.29738E-02
+ Czas montowania macierzy/wektora =    1.8879780000020219E-002  sekund
+ solving a system of equations...
+ Czas solvera =    3.0028890000721731E-003  sekund
+ OK - number of iterations:     0 ---  desired convergence tolerance: 0.1000E-07 residual norm: 0.8991E-08 ---
+ nonlinear P(S) iteration:   2  relative change: 0.0000E+00
+ Czas zapisu na dysk =    2.5372931999982029E-002  sekund
+ czas=        2000  masa=   411.88902143854580
+ MASS BALANCE [kg]: dM=  -2.8023788445352693E-006  Q=   100.00000000000000       OUT=   1.0130921955604250E-016  IN=   4.4368999736762954E-017
+                      DIV=   0.0000000000000000       P=   38.502742280702151       ALPHA=   2.1795583034537391       DIR=   59.317702505661664       EPS=   2.8743870927883108E-007
+ CUMULATIVE [kg]: Q=   2000.0000000000000       OUT=   2.0099390662350697E-015  IN=   8.8057997975323298E-016  DIV=   0.0000000000000000       P=   696.92142484652834       ALPHA=   39.410894532534186       DIR=   851.77866042804533       EPS=   1.2456536708782551E-006
+
+ Czas calkowity =    5.4020182040000009       sekund
+
+
+ creating 2D data files...
+ Czas podzialu plikow =    3.1927389960000028       sekund

@@ -114,6 +114,8 @@ The main Vanadis repository is maintained as the reference implementation, docum
 
 GitHub Discussions may be used to share ideas, results, extensions, validation experience, and interoperability proposals with the wider Vanadis community.
 
+---
+
 ## Historical development
 
 Vanadis has a documented numerical-development history dating back to the 1990s, including published 3-D FEM atmospheric-transport work and preserved source code from 1997.

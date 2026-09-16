@@ -15,7 +15,9 @@ Vanadis is built around an **Element-by-Element (EbE)** architecture. Element ma
 
 The CUDA implementation supports both atomic Element-by-Element operations and a graph-coloring variant for conflict-free processing of independent element groups. The solver uses DBCG with lightweight diagonal preconditioning.
 
-Vanadis **v2026.3.0** extends the model with a **nonlinear concentration-dependent reaction/decay coefficient P(S)**, solved by **Picard iteration**, together with generalized **time-dependent source handling Q(t)**.
+Vanadis **v2026.3.1** is the current development line. It extends the model toward **terrain-following meshes**, spatially and temporally variable physical fields, **27-point HEX8 volume integration**, **9-point Q4 boundary integration**, and full mass-balance diagnostics.
+
+Vanadis **v2026.3.0** introduced a **nonlinear concentration-dependent reaction/decay coefficient P(S)**, solved by **Picard iteration**, together with generalized **time-dependent source handling Q(t)**.
 
 Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 study.
 
@@ -36,6 +38,12 @@ Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 stud
 - nonlinear concentration-dependent reaction/decay handling P(S)
 - Picard iteration for the nonlinear problem
 - generalized time-dependent source handling Q(t)
+- locally evaluated physical fields `v(x,y,z,t)`, `K(x,y,z,t)`, and `alpha(x,y,z,t)`
+- terrain-following HEX8 meshes
+- terrain-consistent test velocity fields
+- 27-point (`3 x 3 x 3`) Gauss integration for HEX8 volume terms
+- 9-point (`3 x 3`) Gauss integration for Q4 boundary terms
+- full mass-balance diagnostics
 - buffered result output and post-processing support
 
 ---
@@ -44,28 +52,32 @@ Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 stud
 
 - `src_v2026_1_1/` — historical v2026.1.1 source snapshot, supporting files, sample results, and corrections specific to that version
 - `src_v2026_2_1/` — source snapshot corresponding to the CMAS 2026 reference release
-- `src_v2026_3_0/` — selected key source files for the current v2026.3.0 development release
+- `src_v2026_3_0/` — v2026.3.0 released development snapshot with nonlinear `P(S)` and generalized `Q(t)`
+- `src_v2026_3_1/` — current v2026.3.1 development baseline, including terrain-following meshes, local physical fields, higher-order Gauss integration, full mass-balance diagnostics, documentation, and validation cases
 - `docs/v2026_3_0/` — technical documentation and architectural comparison material for v2026.3.0
 - `source_code.txt` — guide to key source files and release structure
 - **Releases** — complete distributable archives for published Vanadis versions
 
-The source directories in `main` are intended for inspection and documentation. Complete packaged distributions are provided through GitHub Releases.
+The source directories in `main` are intended for inspection, development tracking, documentation, and validation. Complete packaged distributions for published versions are provided through GitHub Releases.
 
 ---
 
 ## Download / Installation
 
-To run the Vanadis solver, **cloning the repository is not sufficient**.
+### Fastest way to run Vanadis
 
-The fully packaged, ready-to-run version must be downloaded from the Releases section:
+The easiest way to run Vanadis is to download a complete packaged distribution from the **Releases** section. Release packages contain the solver sources, configuration files, documentation, input datasets, and sample results.
+
+For inspection of the latest development work, the repository also contains versioned source snapshots, including the current `src_v2026_3_1/` development baseline.
+
+### CMAS 2026 reference release — v2026.2.1
 
 **Directional_Residual_stabilization_Vanadis.zip**  
 https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.2.1
 
-Vanadis v2026.2.1 is the final reference release for the CMAS 2026 study. Numerical results reported in the CMAS 2026 extended abstract and presentation were obtained using this and earlier compatible Vanadis releases. Later releases may contain additional model developments that were not part of the CMAS 2026 study.
+Vanadis v2026.2.1 is the final reference release for the CMAS 2026 study. Numerical results reported in the CMAS 2026 extended abstract and presentation were obtained using this and earlier compatible Vanadis releases. Later releases and development lines may contain additional model developments that were not part of the CMAS 2026 study.
 
-
-### Current development release — v2026.3.0
+### Released development snapshot — v2026.3.0
 
 Vanadis **v2026.3.0** extends the model with a **nonlinear concentration-dependent reaction/decay coefficient P(S)** and generalized **time-dependent source handling Q(t)**. The nonlinear problem is solved using **Picard iteration** within each time step, while preserving the existing Directional Residual stabilization, Element-by-Element formulation, OpenMP CPU assembly, and CPU/CUDA iterative solution architecture.
 
@@ -84,33 +96,74 @@ The release ZIP archive includes:
 - input datasets
 - sample results
 
+### Current development baseline — v2026.3.1
+
+The current **v2026.3.1 development baseline** is available in:
+
+`src_v2026_3_1/`
+
+The v3.1 line extends Vanadis toward:
+
+- terrain-following meshes
+- spatially and temporally variable physical fields
+- terrain-consistent test velocity fields
+- 27-point HEX8 volume integration
+- 9-point Q4 boundary integration
+- full mass-balance diagnostics
+- validation on distorted terrain-following meshes
+
+v2026.3.1 is currently a **development version**, not yet the final v3.1 release.
+
 ---
 
-## Documentation — v2026.3.0
+## Documentation
+
+### v2026.3.0
 
 Detailed technical documentation and architectural comparison materials for Vanadis 3D v2026.3.0 are available directly in the repository.
 
 The technical description is based directly on the Fortran and CUDA source code of Vanadis v2026.3.0.
 
-### Technical description
+#### Technical description
 
 - [English](docs/v2026_3_0/Vanadis_3D_v2026.3.0_full_technical_description_EN.pdf)
 
-### Model architecture comparison
+#### Model architecture comparison
 
 - [English](docs/v2026_3_0/Vanadis_model_architecture_comparison_EN.pdf)
 
 The architecture comparison discusses Vanadis in relation to Fluidity-Atmosphere, MFEM, CMAQ and FLEXPART. It is intended as a comparison of numerical and software architecture, not as a ranking of scientific accuracy or model capability.
 
+### v2026.3.1 development documentation
+
+Documentation for the current v2026.3.1 development baseline is stored in:
+
+`src_v2026_3_1/DOC/`
+
+It includes guides for:
+
+- input data and model tailoring
+- full mass-balance analysis
+- terrain-following geometry
+- terrain-consistent and externally supplied velocity fields
+
+The current v3.1 baseline also includes reproducible validation material under:
+
+`src_v2026_3_1/validation/`
+
 ---
 
-## Community development and extensions
+## Community development and independent forks
 
-Vanadis is intentionally distributed as complete release packages to support independent research and domain-specific development.
+Vanadis is intended as a **numerical transport engine** that research groups can use as the basis for independent domain-specific models and forks.
 
-Users are encouraged to download a complete release package, adapt and extend Vanadis locally or in their own repositories, and develop domain-specific variants independently.
+Users are encouraged to download a complete release, study the reference implementation, and develop specialized variants in their own repositories. Examples may include extensions for particular atmospheric processes, source types, deposition mechanisms, particle classes, chemistry, or application domains.
 
-The main Vanadis repository is maintained as the reference implementation, documentation source, and release archive rather than as a mandatory central integration point for all community extensions. This allows research groups and developers to evolve specialized versions without requiring every domain-specific change to be reviewed or incorporated into the reference codebase.
+The main Vanadis repository is maintained as the **reference implementation, documentation source, and release archive**.
+
+Vanadis follows a **maintainer-authored development model**. External source-code contributions and pull requests are not incorporated into the reference implementation. Community discussions, bug reports, validation results, scientific ideas, feature proposals, and interoperability work are welcome. Ideas selected for the reference Vanadis line are independently implemented and validated by the maintainer.
+
+Independent forks are encouraged and may evolve separately from the reference Vanadis implementation.
 
 GitHub Discussions may be used to share ideas, results, extensions, validation experience, and interoperability proposals with the wider Vanadis community.
 
@@ -123,6 +176,7 @@ Vanadis has a documented numerical-development history dating back to the 1990s,
 See [Historical publications and project history](docs/history/README.md).
 
 ---
+
 ## CMAS 2026 reference
 
 Vanadis v2026.2.1 is the reference software release associated with the accepted oral presentation at the **25th Annual CMAS Conference, Chapel Hill, NC, October 2026**.
@@ -130,7 +184,7 @@ Vanadis v2026.2.1 is the reference software release associated with the accepted
 Conference agenda:  
 https://www.cmascenter.org/conference/2026/agenda.cfm
 
-Later Vanadis releases, including v2026.3.0, document continued development after the CMAS 2026 reference version.
+Later Vanadis releases and development lines, including v2026.3.0 and v2026.3.1, document continued development after the CMAS 2026 reference version.
 
 ---
 
@@ -148,7 +202,7 @@ This license allows:
 - academic and research use
 - educational use
 - commercial use under GPL-3.0
-- open-source development and contributions
+- independent open-source development and forks
 - modification and redistribution subject to GPL-3.0 requirements
 
 If software incorporating or linking to Vanadis or its implementation of Directional-Residual Stabilization is distributed, the resulting combined or derivative work must comply with the applicable GPL-3.0 requirements, including provision of the corresponding source code where required.

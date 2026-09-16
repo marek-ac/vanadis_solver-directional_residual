@@ -1,6 +1,9 @@
 # Vanadis Solver — Key Source Files
 
-Current development release: v2026.3.0
+Current development line: v2026.3.1
+Status: development baseline, not yet the final v3.1 release
+
+Latest packaged release: v2026.3.0
 
 Reference release for the CMAS 2026 study: v2026.2.1
 
@@ -12,97 +15,137 @@ Vanadis GitHub repository.
 The selected source files are intended to help users and developers inspect
 the core numerical implementation of Vanadis, including the FEM solver,
 Directional Residual stabilization, nonlinear reaction handling, time-dependent
-source handling, OpenMP parallelization, and CUDA Element-by-Element solver.
+source handling, terrain-following geometry, locally evaluated physical fields,
+higher-order Gauss integration, mass-balance diagnostics, OpenMP parallelization,
+and the CUDA Element-by-Element solver.
 
-The files stored in the repository are not a complete copy of the release
-package. The complete Vanadis distribution is available in the corresponding
-ZIP archive in the GitHub Releases section.
+Published release packages are available through the GitHub Releases section.
+The current v2026.3.1 development baseline is provided directly in the repository.
 
-## Vanadis v2026.3.0
+## Vanadis v2026.3.1 — current development baseline
 
-Selected source files for the current development release are located in:
+The current development baseline is located in:
 
-src_v2026_3_0\
+src_v2026_3_1\
 
-The v2026.3.0 source code includes the implementation of:
+The v2026.3.1 source code includes the implementation of:
 
-* three-dimensional HEX8 finite elements
+* three-dimensional transient convection-diffusion-reaction transport
+* HEX8 finite elements
 * Directional Residual (DR) stabilization
 * Element-by-Element matrix operations
 * OpenMP CPU assembly
 * CPU and CUDA DBCG iterative solution
 * diagonal preconditioning
 * CUDA Element-by-Element matrix-vector operations
-* CUDA graph-coloring and atomic execution variants
+* CUDA graph-coloring and non-coloring execution variants
 * nonlinear concentration-dependent reaction/decay coefficient P(S)
 * Picard iteration for the nonlinear problem
 * generalized time-dependent source handling Q(t)
+* locally evaluated physical fields v(x,y,z,t), K(x,y,z,t), and alpha(x,y,z,t)
+* terrain-following meshes
+* terrain-consistent test velocity fields
+* 27-point (3 x 3 x 3) Gauss integration for HEX8 volume terms
+* 9-point (3 x 3) Gauss integration for Q4 boundary terms
+* full mass-balance diagnostics
 * implicit transient time integration
 * Dirichlet and flux-type boundary conditions
 * buffered output and post-processing support
 
+The v2026.3.1 directory also contains documentation and reproducible validation
+material for the current terrain-following development baseline.
+
 ## Main solver
 
-The main Vanadis source contains the FEM formulation, Directional Residual
-stabilization, transient solution procedure, boundary conditions, nonlinear
-P(S) treatment, Q(t) source handling, Picard iteration, OpenMP assembly, and
-interface to the iterative CPU/CUDA solver.
+The main Vanadis source for the current development line is:
+
+src_v2026_3_1\VANADIS.FOR
+
+It contains the FEM formulation, Directional Residual stabilization, transient
+solution procedure, boundary conditions, nonlinear P(S) treatment, Q(t) source
+handling, Picard iteration, terrain-following geometry support, locally evaluated
+physical fields, higher-order Gauss integration, mass-balance diagnostics,
+OpenMP assembly, and the interface to the iterative CPU/CUDA solver.
 
 ## CUDA solver
 
-The CUDA source files contain the GPU implementation of the Element-by-Element
-DBCG solver.
+The current default CUDA DBCG implementation is:
 
-Two principal GPU execution strategies are provided:
+src_v2026_3_1\cudatest.cu
 
-1. Atomic Element-by-Element implementation
+Additional comparison versions are provided:
 
-   Element contributions to shared global nodes are accumulated using CUDA
-   atomic operations.
+* cudatest_color.cu — coloring-enabled version
+* cudatest_no_color.cu — non-coloring reference version
 
-2. Graph-coloring Element-by-Element implementation
+The CUDA sources implement the Element-by-Element DBCG solver and support GPU
+processing strategies based on independent element groups and direct shared-node
+updates.
 
-   HEX8 elements are divided into independent color groups so that elements
-   processed within the same color do not share nodes. This allows the main
-   matrix-vector operations to be executed without atomic updates within each
-   color.
+## Build and configuration
 
-## Nonlinear P(S) and time-dependent Q(t)
+The principal build and runtime configuration files for the current development
+baseline are:
 
-Vanadis v2026.3.0 introduces a nonlinear concentration-dependent
-reaction/decay coefficient P(S).
+src_v2026_3_1\Makefile
+src_v2026_3_1\vanadis.cfg
 
-The resulting nonlinear problem is solved using Picard iteration within each
-time step while preserving the existing Directional Residual and
-Element-by-Element architecture.
+## Documentation and validation
 
-The source-term implementation has also been generalized to support
-time-dependent emissions Q(t), allowing constant, switched, pulsed, or other
-temporally varying source profiles.
+Documentation for the current v2026.3.1 development baseline is located in:
 
-## CMAS 2026 reference release
+src_v2026_3_1\DOC\
 
-Vanadis v2026.2.1 remains the final reference release for the CMAS 2026 study.
+Validation material is located in:
 
-The nonlinear P(S) formulation and generalized time-dependent Q(t) source
-handling introduced in v2026.3.0 were developed after the CMAS 2026 reference
-version and were not part of the CMAS 2026 study.
+src_v2026_3_1\validation\
 
-## Complete release package
+The current baseline includes checks for flat-terrain regression,
+terrain-following mesh generation, terrain-consistent velocity treatment,
+full mass balance, nonlinear P(S), CUDA DBCG operation, and GPU coloring.
 
-The full Vanadis v2026.3.0 distribution is available from:
+Further validation is planned for stronger terrain deformation and comparison
+of lower- and higher-order volume integration on warped HEX8 meshes.
+
+## Vanadis v2026.3.0 — packaged release
+
+Vanadis v2026.3.0 introduced:
+
+* nonlinear concentration-dependent reaction/decay coefficient P(S)
+* Picard iteration within each time step
+* generalized time-dependent source handling Q(t)
+
+The full packaged v2026.3.0 distribution is available from:
 
 https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.3.0
 
 The release ZIP archive contains the complete source set, directory structure,
 configuration files, documentation, input datasets, and sample results.
 
+The corresponding repository snapshot is located in:
+
+src_v2026_3_0\
+
+## CMAS 2026 reference release
+
+Vanadis v2026.2.1 remains the final reference release for the CMAS 2026 study.
+
+The nonlinear P(S) formulation and generalized time-dependent Q(t) source
+handling introduced in v2026.3.0, as well as the terrain-following and extended
+integration developments in v2026.3.1, were developed after the CMAS 2026
+reference version and were not part of the CMAS 2026 study.
+
+The CMAS 2026 reference release is available from:
+
+https://github.com/marek-ac/vanadis_solver-directional_residual/releases/tag/v2026.2.1
+
 ## Notes
 
-The src_v2026_3_0 directory contains selected key source files only.
+The versioned source directories in the repository support direct inspection,
+development tracking, documentation, and validation.
 
-It is intended primarily for convenient inspection of the main implementation
-directly in the GitHub repository. For a complete Vanadis distribution, use
-the ZIP archive provided with the corresponding GitHub release.
+Published packaged distributions should be obtained from GitHub Releases.
+The current v2026.3.1 directory is a development baseline and is not yet the
+final v3.1 release.
 
 This file is informational only and does not affect licensing.

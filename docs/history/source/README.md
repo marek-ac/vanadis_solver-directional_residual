@@ -1,6 +1,6 @@
 # Historical Vanadis source code
 
-This directory preserves selected source-code milestones from the early development of the Vanadis atmospheric-transport model.
+This directory preserves selected source-code milestones from the development history of the Vanadis atmospheric-transport model.
 
 The files are retained as **historical software artifacts**. They are not part of the current supported Vanadis release and should not be treated as production software. Wherever possible, the original source bytes should remain unchanged. Compiler-specific constructs, hard-coded research cases, comments, experimental branches and historical implementation limitations are part of the record.
 
@@ -47,8 +47,9 @@ https://www.pzits.not.pl/docs/ksiazki/pol_1997.html
 | 1997 | `1997_3d_transient_lu/LU_T_OK.FOR` | alternative transient implementation | HEX8 FEM, transient mass matrix, assembled global band matrix, LINPACK band-LU solution |
 | 1990s | `ftn90_visualization/1.f90` | interactive concentration-field viewer | Salford FTN90, VGA graphics, bilinear interpolation, colour mapping, mouse readout |
 | 1998 | `1998_defence_animation/` | transient-animation software used for the doctoral-defence presentation | PCX frame generation, frame preloading, VGA playback, simulation-time display |
+| c. 2015 | `2015_cuda/` | early CUDA implementation of the EBE iterative solver | GPU implementation of the existing Element-by-Element operator and iterative nonsymmetric-system architecture |
 
-The dates above describe the historical development period and archival context. Historical archive timestamps are treated as provenance evidence rather than cryptographic proof of authorship dates.
+The dates above describe the historical development period and archival context. Historical archive timestamps and preserved filesystem metadata are treated as provenance evidence rather than cryptographic proof of authorship dates.
 
 The archived copy corresponding to the transient EBE source has an internal archive timestamp of **9 August 1997**. This is useful provenance evidence, but it should not be interpreted as cryptographic proof of the authorship date.
 
@@ -240,6 +241,43 @@ A minor historical typo (`erro_code` instead of `error_code`) exists in one erro
 
 ---
 
+## `2015_cuda/`
+
+This directory preserves an early CUDA implementation of the Vanadis Element-by-Element iterative linear solver.
+
+The implementation represents a GPU port of an already existing Vanadis solver architecture rather than a redesign of the numerical method specifically for CUDA. The element-local matrix representation and the iterative nonsymmetric-system strategy originate from the earlier Fortran development line.
+
+The archived files are believed to date from approximately **2015**, based on the author's preserved development files and filesystem metadata. No contemporaneous cryptographic timestamp or version-control record is currently available, so this date should be treated as archival provenance rather than independent proof of the exact implementation date.
+
+The historical CUDA source should be preserved unchanged wherever possible. Any modernised or restored variant should be stored separately.
+
+### Historical significance
+
+This source documents the transition of the Vanadis Element-by-Element architecture from CPU implementation to GPU execution.
+
+The existing EBE organisation was particularly suitable for CUDA parallelisation because the solver could apply element-local matrices directly without introducing a conventional assembled global sparse matrix.
+
+The CUDA implementation therefore represents a continuation of the numerical and data-structure choices already visible in the preserved 1997 Fortran sources rather than the introduction of a separate GPU-specific solver architecture.
+
+This development stage forms an important bridge between the early Vanadis implementation and the later production versions using CUDA acceleration.
+
+The code is preserved as a historical development artifact and is **not** the current production CUDA implementation.
+
+### Dating and provenance
+
+The approximate date assigned to this source is based on preserved archival context and filesystem metadata.
+
+Such metadata is useful historical evidence, but it can be modified and is not equivalent to a cryptographic timestamp, contemporaneous public release, or version-control commit.
+
+The repository therefore deliberately distinguishes between:
+
+- the **approximate historical development date** of the preserved CUDA source; and
+- the later date on which the artifact was added to the public Git repository.
+
+No attempt is made to backdate Git history.
+
+---
+
 ## Recommended repository layout
 
 ```text
@@ -256,10 +294,13 @@ docs/history/source/
 │   └── LU_T_OK.FOR
 ├── ftn90_visualization/
 │   └── 1.f90
-└── 1998_defence_animation/
-    ├── xb.f90
-    ├── run1b.f90
-    └── vanadis1.webm
+├── 1998_defence_animation/
+│   ├── xb.f90
+│   ├── run1b.f90
+│   └── vanadis1.webm
+└── 2015_cuda/
+    ├── README.md
+    └── cudatest.cu
 ```
 
 The filenames shown above follow the current repository paths. Historical/original filenames and any portability-related renaming are documented in the README files of the corresponding subdirectories.
@@ -277,15 +318,21 @@ For any future reconstruction, a useful pattern is:
 
 `SHA256SUMS.txt` contains SHA-256 digests of the historical source files and the preserved animation capture. The checksums were calculated from the uploaded historical copies before any source modification.
 
+The addition of a checksum to this repository establishes the integrity of the archived copy from the time at which the checksum was calculated. It does not by itself establish the original historical creation date of the corresponding file.
+
 ## Interpretation
 
-These files should not be used to claim that every feature of the current Vanadis formulation was already present in the earliest code. They document a **development sequence**: 2-D FEM transport and Peclet-dependent upwinding, followed by 3-D HEX8 formulations, nonlinear experiments, transient integration, Element-by-Element operator application, alternative LU solution, and dedicated DOS/FTN90 visualisation and animation tools.
+These files should not be used to claim that every feature of the current Vanadis formulation was already present in the earliest code.
 
-The 1997 record is now supported by two complementary evidence types:
+They document a **development sequence**: 2-D FEM transport and Peclet-dependent upwinding, followed by 3-D HEX8 formulations, nonlinear experiments, transient integration, Element-by-Element operator application, alternative LU solution, dedicated DOS/FTN90 visualisation and animation tools, and later GPU implementation of the EBE solver architecture.
+
+The 1997 record is supported by two complementary evidence types:
 
 - **published evidence** — the POL-IMIS proceedings paper documents a 3-D HEX8 atmospheric-dispersion model, a transient calculation, lateral convection, an obstacle case and concentration-dependent removal;
 - **software evidence** — the preserved 1997 Fortran sources document how the 3-D, transient, nonlinear and Element-by-Element branches were actually implemented.
 
 The two should be kept distinct. In particular, the published POL-IMIS paper does not by itself establish that the reported calculations used the EBE branch; the EBE architecture is directly evidenced by the preserved source code.
+
+The later CUDA source provides a further implementation-level milestone showing how the established Element-by-Element architecture was transferred to GPU execution. Because its approximate historical date is based on archival context rather than a cryptographically verified contemporaneous record, the repository does not present the date as independently proven.
 
 Their combined value is historical and technical: they show how the Vanadis numerical architecture evolved through published scientific work and working research software rather than appearing as a single modern rewrite.

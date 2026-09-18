@@ -137,7 +137,7 @@ time-dependent evolution of pollutant transport. Historical FTN90 programs used
 to prepare and display the animation are also preserved in this repository.
 
 The 1998 defence is therefore an independent dated record of the transient model
-being demonstrated publicly, although the newly recovered 1997 POL-IMIS paper
+being demonstrated publicly, although the recovered 1997 POL-IMIS paper
 shows that transient calculations had already been documented earlier.
 
 ### 1999 — published 3-D FEM / Pasquill comparison
@@ -164,6 +164,26 @@ longer accurate to describe it as the first published three-dimensional stage,
 because the POL-IMIS proceedings paper already documented a 3-D HEX8 model in
 1997.
 
+### c. 2015 — early CUDA implementation of the EBE solver
+
+A preserved CUDA source documents an early GPU implementation of the Vanadis
+Element-by-Element iterative linear solver.
+
+The implementation transfers the already existing EBE numerical architecture
+to CUDA rather than introducing a separate GPU-specific formulation. The local
+HEX8 matrix representation and the iterative nonsymmetric-system strategy
+originate from the earlier Fortran development line.
+
+The archived source is believed to date from approximately 2015, based on the
+author's preserved development files and filesystem metadata. No contemporaneous
+cryptographic timestamp or version-control record is currently available, so
+the date should be treated as archival provenance rather than independent proof
+of the exact implementation date.
+
+This stage is significant because it forms a direct technological bridge between
+the Element-by-Element architecture documented in the 1997 Fortran sources and
+the later CUDA-accelerated Vanadis solver.
+
 ### Later development
 
 The model subsequently evolved through further numerical and implementation
@@ -175,7 +195,7 @@ developments, including:
 - Directional Residual stabilization,
 - anisotropic directional Peclet treatment,
 - OpenMP parallel CPU assembly,
-- CUDA GPU iterative solution,
+- further CUDA GPU iterative-solver development,
 - nonlinear concentration-dependent removal,
 - and generalized time-dependent source handling.
 
@@ -216,8 +236,12 @@ transient animation demonstrated during the public PhD defence
 published 3-D FEM / Pasquill comparison
         |
         v
+c. 2015
+early CUDA implementation of the existing EBE iterative solver architecture
+        |
+        v
 later development
-EbE + nonsymmetric Krylov solvers + Directional Residual stabilization
+Directional Residual stabilization + OpenMP + further CUDA development
         |
         v
 current Vanadis
@@ -287,26 +311,35 @@ They include:
 - `1997_3d_transient_ebe/` — early 3-D transient Element-by-Element branch,
 - `1997_3d_transient_lu/` — alternative assembled band-LU transient branch,
 - `ftn90_visualization/` — historical concentration-field visualization,
-- `1998_defence_animation/` — software used for the transient animation workflow.
+- `1998_defence_animation/` — software used for the transient animation workflow,
+- `2015_cuda/` — early CUDA implementation of the Element-by-Element iterative solver.
 
 The historical source files are retained as archival software artifacts. They
 should not be interpreted as current production code, and known historical
 limitations are documented rather than silently corrected.
+
+For the approximately 2015 CUDA source, the historical date is based on
+preserved archival context and filesystem metadata rather than a cryptographic
+timestamp or contemporaneous version-control record. The date on which the
+source is added to this public repository is therefore intentionally kept
+distinct from its approximate historical development date.
 
 ## Interpretation of the historical record
 
 The surviving evidence should not be used to claim that every feature of the
 current Vanadis formulation already existed in the earliest code.
 
-In particular, the modern Directional Residual formulation, OpenMP and CUDA are
-later developments.
+In particular, the modern Directional Residual formulation and OpenMP are later
+developments. CUDA acceleration also belongs to the later development period,
+with a preserved early CUDA implementation dating approximately to 2015.
 
 What the historical publications and source code do document is a continuous
 technical development sequence:
 
 **2-D FEM atmospheric transport → 3-D HEX8 FEM → transient and nonlinear
-experiments → Element-by-Element operator architecture → later nonsymmetric
-Krylov solvers and DR → modern OpenMP/CUDA Vanadis.**
+experiments → Element-by-Element operator architecture → CUDA implementation
+of the EBE solver → Directional Residual and OpenMP development → modern
+Vanadis.**
 
 The distinction between published evidence and software evidence is also
 important. The 1997 POL-IMIS paper independently documents the 3-D HEX8 model,
@@ -314,6 +347,11 @@ transient example, lateral convection, obstacle experiment and nonlinear
 removal variant. The archived 1997 source code additionally documents the
 Element-by-Element implementation and other internal numerical details not
 fully described in the proceedings paper.
+
+The later CUDA source provides an additional implementation-level milestone.
+It shows how the existing Element-by-Element architecture was transferred to
+GPU execution rather than being replaced by an unrelated GPU-specific solver
+design.
 
 ## History note
 
@@ -334,3 +372,7 @@ show the development of the numerical model as it actually occurred.
 Original historical source files should remain unchanged wherever possible.
 Corrected or modernized versions should be stored separately and clearly marked
 as restored or derived versions.
+
+Historical filesystem timestamps and other archival metadata are useful
+provenance evidence but are not treated as cryptographic proof of an exact
+authorship or implementation date.

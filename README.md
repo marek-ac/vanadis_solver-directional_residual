@@ -33,7 +33,7 @@ Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 stud
 - CPU and CUDA iterative DBCG solution paths
 - diagonal/Jacobi preconditioning
 - CUDA atomic and graph-coloring Element-by-Element variants
-- implicit transient time integration
+- implicit `theta = 2/3` transient time integration
 - Dirichlet and flux-type boundary conditions
 - nonlinear concentration-dependent reaction/decay handling P(S)
 - Picard iteration for the nonlinear problem
@@ -45,6 +45,167 @@ Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 stud
 - 9-point (`3 x 3`) Gauss integration for Q4 boundary terms
 - full mass-balance diagnostics
 - buffered result output and post-processing support
+
+---
+
+## Numerical architecture at a glance
+
+Vanadis separates the **physical description of the atmospheric problem**, the **local FEM/Directional Residual formulation**, and the **linear-algebra backend**. For problems that remain within the present three-dimensional advection-diffusion-reaction model, the numerical core is intended to remain unchanged while the case-specific geometry, boundary conditions, sources, reaction parameters, and transport fields are supplied through the corresponding data and field routines.
+
+In compact form, the v2026.3.1 computation path is:
+
+**physical data -> HEX8 / 27-point Gauss integration -> local Jacobian and transport fields -> Directional Residual stabilization -> `theta = 2/3` transient FEM -> OpenMP element assembly -> Element-by-Element DBCG/Jacobi -> CPU or CUDA solution -> mass-balance diagnostics**
+
+### Physical quantities and their spatial resolution
+
+| Quantity | Representation in v2026.3.1 |
+| --- | --- |
+| mesh geometry | 8-node hexahedral elements (HEX8) |
+| volume integration | 27 Gauss points (`3 x 3 x 3`) per HEX8 element |
+| boundary integration | 9 Gauss points (`3 x 3`) per Q4 face |
+| velocity `v(x,y,z,t)` | evaluated locally at physical Gauss points |
+| diffusion `K(x,y,z,t)` / diagonal `Lambda(x,y,z,t)` | evaluated locally at physical Gauss points |
+| Robin/deposition field `alpha(x,y,z,t)` | evaluated locally at boundary Gauss points |
+| source `Q(t)` | assigned at element level by `source_term`; the routine also receives the element number |
+| nonlinear reaction/decay `P(S)` | evaluated from an element-representative concentration and updated by Picard iteration |
+| Directional Residual parameter `tau_DR` | evaluated locally at each volume Gauss point |
+
+The use of 27 Gauss points **does not mean that Vanadis uses a 27-node element**. The interpolation remains HEX8; the `3 x 3 x 3` rule provides higher-order numerical integration of geometry-dependent and spatially varying terms.
+
+### Directional Residual stabilization
+
+At every volume Gauss point, Vanadis evaluates the physical position, the local velocity and diffusion fields, and the HEX8 Jacobian
+
+```text
+J = d(x,y,z) / d(xi,eta,zeta).
+```
+
+For non-zero velocity,
+
+```text
+e = v / |v|
+```
+
+defines the local streamline direction. The characteristic element length used by DR is obtained from the actual element mapping:
+
+```text
+h_stream = 2 / || J^(-1) e ||.
+```
+
+For the diagonal diffusion tensor
+
+```text
+Lambda = diag(lambda_1, lambda_2, lambda_3),
+```
+
+the diffusion acting in the streamline direction is
+
+```text
+lambda_s = e^T Lambda e.
+```
+
+The local Peclet number and DR parameter are then
+
+```text
+Pe = |v| h_stream / (2 lambda_s)
+
+tau_DR = h_stream / (2 |v|)
+         * (coth(Pe) - 1/Pe).
+```
+
+The implementation includes numerically safe small- and large-Peclet limits and the pure-advection limit
+
+```text
+lambda_s -> 0  =>  tau_DR -> h_stream / (2 |v|).
+```
+
+The perturbed test weight is
+
+```text
+W_i = N_i + tau_DR * (v . grad N_i).
+```
+
+Consequently, the stabilization responds automatically to:
+
+- the local velocity direction,
+- the local size and distortion of the HEX8 element,
+- the element orientation relative to the flow,
+- anisotropic diagonal diffusion,
+- spatially and temporally varying `v` and `K`.
+
+For isotropic diffusion, `Lambda = K I` and therefore `lambda_s = K`.
+
+### Weak-form structure
+
+The diffusion part intentionally remains the standard Galerkin term
+
+```text
+grad(N_i)^T Lambda grad(N_j).
+```
+
+The DR perturbation enters the transient, advective, reaction/source, and applicable boundary weighting through `W_i`. In simplified volume form, the element contributions are of the form
+
+```text
+H_ij =
+  integral [
+      grad(N_i)^T Lambda grad(N_j)
+    + W_i (v . grad(N_j))
+    + W_i P N_j
+  ] dOmega
+
+M_ij =
+  integral W_i N_j dOmega
+
+F_i =
+  integral W_i q_e dOmega,
+```
+
+with the corresponding boundary contributions added separately.
+
+This distinction is deliberate: Vanadis does **not** replace the Galerkin diffusion gradient by `grad(W_i)`. The DR term is used as directional residual weighting, so derivatives of `W_i` or `tau_DR` are not required by the present formulation.
+
+### Transient formulation
+
+Vanadis v2026.3.1 uses an implicit `theta = 2/3` scheme. Because the velocity, diffusion, boundary fields, and therefore the DR-weighted operator may vary with time, the element operator `H` and DR-weighted mass matrix `M` are evaluated at both time levels.
+
+The assembled time-discrete equation is
+
+```text
+( 2 H^(n+1) + 3/dt M^(n+1) ) C^(n+1)
+ =
+( 3/dt M^n - H^n ) C^n
++ 2 F^(n+1) + F^n.
+```
+
+For nonlinear `P(S)`, the new-time-level problem is solved by Picard iteration while `C^n` remains fixed.
+
+### Parallel and GPU architecture
+
+Element matrices are stored and processed in **Element-by-Element (EbE)** form rather than assembled into a conventional global sparse matrix. For HEX8 this gives regular local `8 x 8` blocks.
+
+The computational work is divided as follows:
+
+- **OpenMP / CPU** — parallel construction of element matrices and vectors,
+- **EbE DBCG with diagonal/Jacobi preconditioning** — iterative linear solution,
+- **CUDA / GPU** — accelerated EbE matrix-vector operations and DBCG solution,
+- **atomic or graph-coloring CUDA variants** — alternative handling of shared-node updates.
+
+When the EbE data and solver vectors fit in GPU memory, the linear iterations can be performed on a single GPU without repeatedly transferring a conventional global sparse matrix between CPU and GPU.
+
+### Design consequence
+
+For atmospheric transport problems covered by the present model, a new application normally changes the **data and physical-field definitions**, not the FEM/DR core. Typical case-specific inputs include:
+
+- mesh and terrain geometry,
+- boundary-condition assignment,
+- element source histories,
+- reaction/decay parameters,
+- velocity fields,
+- diffusion fields,
+- deposition/Robin fields,
+- time-step and simulation parameters.
+
+The same local HEX8/DR formulation, transient assembly, OpenMP parallelization, and EbE CPU/CUDA solver can then be reused without redesigning the numerical method.
 
 ---
 

@@ -104,7 +104,7 @@ For the diagonal diffusion tensor
 
 ```math
 \Lambda =
-\operatorname{diag}
+\mathrm{diag}
 \left(\lambda_1,\lambda_2,\lambda_3\right) ,
 ```
 
@@ -130,7 +130,7 @@ The Directional Residual parameter is
 \frac{h_{\mathrm{stream}}}
      {2\left\|\mathbf{v}\right\|}
 \left[
-\coth(Pe)-\frac{1}{Pe}
+\mathrm{coth}(Pe)-\frac{1}{Pe}
 \right] .
 ```
 

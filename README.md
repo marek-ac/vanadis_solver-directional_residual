@@ -5,6 +5,8 @@
 
 **Project website:** [marek-ac.meri.pl](https://marek-ac.meri.pl)
 
+**Try the Windows demo:** available from the project website.
+
 ---
 
 ## Overview

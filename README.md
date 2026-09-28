@@ -302,10 +302,31 @@ The same local HEX8/DR formulation, transient assembly, OpenMP parallelization, 
 - `src_v2026_3_0/` — v2026.3.0 released development snapshot with nonlinear `P(S)` and generalized `Q(t)`
 - `src_v2026_3_1/` — current v2026.3.1 development baseline, including terrain-following meshes, local physical fields, higher-order Gauss integration, full mass-balance diagnostics, documentation, and validation cases
 - `docs/v2026_3_0/` — technical documentation and architectural comparison material for v2026.3.0
+- `tools/` — standalone post-processing utilities for bitmap rendering, animation-frame generation, and NetCDF-4 conversion
 - `source_code.txt` — guide to key source files and release structure
 - **Releases** — complete distributable archives for published Vanadis versions
 
 The source directories in `main` are intended for inspection, development tracking, documentation, and validation. Complete packaged distributions for published versions are provided through GitHub Releases.
+
+---
+
+## Post-processing tools
+
+Standalone post-processing utilities are available under [`tools/`](tools/). They operate on standard Vanadis text output and do not require changes to the solver itself.
+
+- [`tools/bitmap/`](tools/bitmap/) — lightweight renderer for a single 2-D Vanadis output plane. It uses bilinear Q4 interpolation of nodal concentration values and writes a BMP image. The included example contains the source `X_02000_001.TXT`, a raw bitmap, and an annotated version with a concentration scale.
+- [`tools/animation_frames/`](tools/animation_frames/) — batch generator for annotated BMP frames from `X_?????_???.TXT`, `Y_?????_???.TXT`, and `Z_?????_???.TXT` plane-output sequences. It supports `global`, `family`, and `local` color-scale modes and is intended for producing time-series frames that can be assembled into animations with external tools.
+- [`tools/netcdf/`](tools/netcdf/) — Fortran converter for combining Vanadis `T_XXXXX.TXT` time-series output into a compressed NetCDF-4 dataset. The grid dimensions are inferred automatically from the structured Vanadis coordinates. The resulting file can be inspected with standard NetCDF-aware software such as NASA Panoply or processed with tools such as xarray.
+
+Each tool directory contains its own `README.md` with build instructions, usage examples, assumptions, and example data where applicable.
+
+A typical set of post-processing paths is:
+
+```text
+single X-plane TXT     -> bitmap renderer       -> BMP
+X/Y/Z plane sequences  -> animation-frame tool  -> BMP frame sequences
+T_XXXXX.TXT series     -> NetCDF converter      -> NetCDF-4 -> Panoply / xarray
+```
 
 ---
 

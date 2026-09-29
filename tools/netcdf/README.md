@@ -115,6 +115,17 @@ The `time` dimension is unlimited.
 Negative concentration values present in the Vanadis output are preserved.
 This program is a format converter, not a numerical filter.
 
+### Negative-value diagnostic
+
+Small negative concentration values caused by numerical oscillations are retained
+in the original Vanadis output and are transferred unchanged to the NetCDF dataset.
+The standard concentration bitmap uses a display scale intended for the physically
+relevant positive concentration range and therefore does not emphasize these small
+undershoots. A separate **small oscillations view** can be used to visualize them
+explicitly. The same negative values remain visible in standard NetCDF viewers such
+as NASA Panoply, which displays the actual data range rather than filtering or
+clipping the concentration field.
+
 The file records Vanadis model coordinates only. No geodetic coordinate
 reference system (CRS) is currently encoded.
 

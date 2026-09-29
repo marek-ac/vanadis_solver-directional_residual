@@ -1,3 +1,8 @@
+/releases/tag/v2026.3.1_dev1
+Name: Directional_Residual_stabilzation_Vanadis_v2026_3_1_dev1.zip
+Size: 1085322 bytes (1059 KiB)
+SHA256: 707d252b3f45da9ea4815c9b75922c0833e5977cc10f67ac2b2a35ebcf050f73
+
 /releases/tag/v2026.3.0
 Name: Directional_Residual_stabilzation_Vanadis_v2026_3_0.zip
 Size: 1789631 bytes (1747 KiB)

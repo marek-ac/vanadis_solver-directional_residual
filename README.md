@@ -28,7 +28,7 @@ Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 stud
 <p align="center">
   <img src="docs/media/vanadis_city2.gif"
        alt="Vanadis transient atmospheric transport simulation over Warsaw"
-       width="841">
+       width="780">
 </p>
 
 ---

@@ -235,7 +235,7 @@ Vanadis v2026.3.1 uses an implicit time-integration scheme with
 
 Because the velocity, diffusion, boundary fields, and therefore the DR-weighted operator may vary with time, both the element operator `H` and the DR-weighted mass matrix `M` are evaluated at the old and new time levels.
 
-For `theta = 2/3`, the DR-weighted mass matrix used in the transient term is time-centered as
+For `theta = 2/3`, the DR-weighted mass matrix used in the transient term is evaluated at the theta time level by linear interpolation:
 
 ```math
 M_\theta =
@@ -284,7 +284,7 @@ H^n
 F^n .
 ```
 
-The same time-centered DR-weighted mass matrix is used on both sides of the time-discrete equation, avoiding an artificial `dM/dt * C` contribution when the DR weights vary in time.
+The same theta-weighted DR mass matrix is used on both sides of the time-discrete equation, avoiding an artificial `dM/dt * C` contribution when the DR weights vary in time.
 
 For nonlinear concentration-dependent reaction/decay,
 

@@ -21,6 +21,8 @@ Vanadis **v2026.3.1** is the current development line. It extends the model towa
 
 Vanadis **v2026.3.0** introduced a **nonlinear concentration-dependent reaction/decay coefficient P(S)**, solved by **Picard iteration**, together with generalized **time-dependent source handling Q(t)**.
 
+Here, `S` denotes the local or element-representative concentration used to evaluate the nonlinear reaction/decay coefficient `P(S)`.
+
 Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 study.
 
 ---

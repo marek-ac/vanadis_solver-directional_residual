@@ -5,7 +5,7 @@
 !   - Commercial license (contact author)
 ! See LICENSE.md for details.
 !
-! VANADIS 3D v3.1.0 development line - 12.09.2026
+! VANADIS 3D v3.1.0 development line - 07.10.2026
 ! Terrain-following mesh with terrain-consistent velocity field
 ! Quadrature: 3x3x3 HEX8 volume, 3x3 Q4 boundary
 ! DR: Jacobian metric h_stream, safe Pe, pure-advection K=0 limit
@@ -1215,17 +1215,17 @@ c--- C^n remains fixed during Picard iterations for step n+1.
             p_max = dmax1(p_max,pzanik)
 
 c-----------------------------------------------------------------------
-c theta=2/3 with time-dependent operator and DR-weighted mass matrix:
+c theta=2/3 with time-centered DR-weighted mass matrix:
 c
-c (2 H^(n+1) + 3/dt M^(n+1)) C^(n+1)
-c    = (3/dt M^n - H^n) C^n + 2 F^(n+1) + F^n
+c [2 H^(n+1) + (M^n+2 M^(n+1))/dt] C^(n+1)
+c   = [(M^n+2 M^(n+1))/dt - H^n] C^n + 2 F^(n+1) + F^n
 c-----------------------------------------------------------------------
             do i = 1, 8
                do j = 1, 8
                   hma_t(i,j) = hma_old(i,j)
-     &                        - 3.0d0/i_d_czas*cmass_old(i,j)
+     &                      - (cmass_old(i,j)+2.0d0*cma_n(i,j))/i_d_czas
                   hma2d(i,j) = 2.0d0*hma(i,j)
-     &                        + 3.0d0/i_d_czas*cma_n(i,j)
+     &                      + (cmass_old(i,j)+2.0d0*cma_n(i,j))/i_d_czas
                enddo
             enddo
 

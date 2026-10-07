@@ -92,7 +92,7 @@ For non-zero velocity,
      {\left\|\mathbf{v}\right\|} ,
 ```
 
-which defines the local streamline direction.
+which defines the local streamline direction. For zero or numerically negligible velocity, the directional perturbation is disabled and `W_i = N_i`.
 
 The characteristic element length used by DR is obtained directly from the actual element mapping:
 
@@ -223,7 +223,7 @@ This distinction is deliberate. Vanadis does **not** replace the Galerkin diffus
 \nabla W_i .
 ```
 
-The diffusion operator remains Galerkin, while the Directional Residual contribution enters through residual weighting by `W_i`. Consequently, derivatives of `W_i` or `tau_DR` are not required by the present formulation.
+The diffusion operator remains Galerkin, while the Directional Residual contribution enters through Petrov-Galerkin test weighting by `W_i`. Consequently, derivatives of `W_i` or `tau_DR` are not required by the present formulation.
 
 ### Transient formulation
 
@@ -235,17 +235,26 @@ Vanadis v2026.3.1 uses an implicit time-integration scheme with
 
 Because the velocity, diffusion, boundary fields, and therefore the DR-weighted operator may vary with time, both the element operator `H` and the DR-weighted mass matrix `M` are evaluated at the old and new time levels.
 
+For `theta = 2/3`, the DR-weighted mass matrix used in the transient term is time-centered as
+
+```math
+M_\theta =
+\frac{1}{3}M^n
++
+\frac{2}{3}M^{n+1} .
+```
+
 The assembled time-discrete equation is
 
 ```math
 \left(
 2H^{n+1}
 +
-\frac{3}{\Delta t}M^{n+1}
+\frac{3}{\Delta t}M_\theta
 \right)C^{n+1}
 =
 \left(
-\frac{3}{\Delta t}M^n
+\frac{3}{\Delta t}M_\theta
 -
 H^n
 \right)C^n
@@ -254,6 +263,28 @@ H^n
 +
 F^n .
 ```
+
+Equivalently,
+
+```math
+\left[
+2H^{n+1}
++
+\frac{M^n+2M^{n+1}}{\Delta t}
+\right]C^{n+1}
+=
+\left[
+\frac{M^n+2M^{n+1}}{\Delta t}
+-
+H^n
+\right]C^n
++
+2F^{n+1}
++
+F^n .
+```
+
+The same time-centered DR-weighted mass matrix is used on both sides of the time-discrete equation, avoiding an artificial `dM/dt * C` contribution when the DR weights vary in time.
 
 For nonlinear concentration-dependent reaction/decay,
 

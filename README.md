@@ -33,6 +33,15 @@ Vanadis **v2026.2.1** remains the final reference release for the CMAS 2026 stud
 
 ---
 
+## Windows Demo
+
+A precompiled Windows demonstration of Vanadis v2026.2.1
+is available without the need to compile the source code.
+
+[Download Vanadis Demo v2026.2.1](https://github.com/marek-ac/vanadis_solver-directional_residual/releases/download/v2026.2.1/Vanadis_demo_v2026_2_1.zip)
+
+---
+
 ## Key features
 
 - three-dimensional atmospheric advection-diffusion-reaction modeling

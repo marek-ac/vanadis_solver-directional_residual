@@ -2,6 +2,7 @@
 
 [![CMAS 2026](https://img.shields.io/badge/CMAS_2026-Oral_Presentation-blue)](https://www.cmascenter.org/conference/2026/agenda.cfm)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21352013.svg)](https://doi.org/10.5281/zenodo.21352013)
+[CMAS 2026 extended abstract (Open Access)](https://doi.org/10.5281/zenodo.23611117)
 
 **Project website:** [marek-ac.meri.pl](https://marek-ac.meri.pl)
 
@@ -497,7 +498,11 @@ See [Historical publications and project history](docs/history/README.md).
 
 Vanadis v2026.2.1 is the reference software release associated with the accepted oral presentation at the **25th Annual CMAS Conference, Chapel Hill, NC, October 2026**.
 
-Conference agenda:  
+**Extended abstract (Open Access):**  
+[Directional Residual Stabilisation for High-Péclet-Number Advection–Diffusion Problems: GPU-Accelerated Implementation in the Vanadis System](https://doi.org/10.5281/zenodo.23611117)  
+DOI: `10.5281/zenodo.23611117`
+
+**Official conference agenda:**  
 https://www.cmascenter.org/conference/2026/agenda.cfm
 
 Later Vanadis releases and development lines, including v2026.3.0 and v2026.3.1, document continued development after the CMAS 2026 reference version.

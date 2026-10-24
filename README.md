@@ -494,18 +494,27 @@ See [Historical publications and project history](docs/history/README.md).
 
 ---
 
-## CMAS 2026 reference
+## Conference presentations
 
-Vanadis v2026.2.1 is the reference software release associated with the accepted oral presentation at the **25th Annual CMAS Conference, Chapel Hill, NC, October 2026**.
+### CMAS 2026 — Oral presentation
 
-**Extended abstract (Open Access):**  
-[Directional Residual Stabilisation for High-Péclet-Number Advection–Diffusion Problems: GPU-Accelerated Implementation in the Vanadis System](https://doi.org/10.5281/zenodo.23611117)  
-DOI: `10.5281/zenodo.23611117`
+**25th Annual CMAS Conference**, Chapel Hill, North Carolina, USA, 20 October 2026.
 
-**Official conference agenda:**  
-https://www.cmascenter.org/conference/2026/agenda.cfm
+**Directional Residual Stabilisation for High-Péclet-Number Advection–Diffusion Problems: GPU-Accelerated Implementation in the Vanadis System**
 
-Later Vanadis releases and development lines, including v2026.3.0 and v2026.3.1, document continued development after the CMAS 2026 reference version.
+- [Extended abstract (PDF)](docs/publications/CMAS_2026_extended_abstract.pdf)
+- [Presentation slides (PowerPoint)](docs/publications/CMAS_2026_presentation.pptx)
+- [Extended abstract on Zenodo — DOI: 10.5281/zenodo.23611117](https://doi.org/10.5281/zenodo.23611117)
+- [Official conference programme](https://www.cmascenter.org/conference/2026/agenda.cfm)
+
+Vanadis **v2026.2.1** is the reference software release for the CMAS 2026 study. Numerical results reported in the extended abstract and presentation were obtained using this and earlier compatible Vanadis releases. Later releases and development lines, including v2026.3.0 and v2026.3.1, document work that was not part of the CMAS 2026 study.
+
+### Prague 2026 — Conference poster
+
+**15th International Conference on Air Quality – Science and Application**, Prague, Czech Republic, 1–5 June 2026.
+
+- [Conference poster (PDF)](docs/publications/Prague_2026_poster.pdf)
+- [Poster DOI: 10.13140/RG.2.2.22631.41124](https://doi.org/10.13140/RG.2.2.22631.41124)
 
 ---
 
